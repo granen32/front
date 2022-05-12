@@ -1,10 +1,9 @@
 import React from 'react';
-import TodoList from './study_05/component/TodoList';
-
+import LterationSample from './slave_04/LterationSample';
 function App() {
   return (
     <div>
-      <TodoList/>
+      <LterationSample></LterationSample>
     </div>
   )
 }

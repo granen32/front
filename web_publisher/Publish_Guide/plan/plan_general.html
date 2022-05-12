@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <!-- 문자셋을 의미하며 euc-kr과 urf-8이 있으나 개발에 따라 변경될 예정 -->
+    <title>웹퍼블리싱 프로세스</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 클라이언트와 서버간의 통신에서 주고 받는 http-equiv 속성으로 콘텐츠 타입을 지정해줌 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;Chromeframe=1">
+    <!--IE8이 개발되면서 생긴 호환성 모드에 대응하기 위한 속성이다. IE=EDGE는 항상 최신의 표준엔진을 사용해 렌더링 하게 된다.  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <!-- 화면 사이즈와 맞춰진다 모바일 브라우저에서 ZOOM을 사용하게 되는 데 최적의 사용환경을 위해 이를 방지해야 할경우 속성을 1로하고 사용자의 확대여부를 막는다. -->
+    <meta name="keywords" content=""> 
+    <!-- keyword 항목은 사이트내의 간략한 키워드를 뜻함 -->
+    <meta name="description" content="">
+    <!-- description 항목은 사이트내의 간략한 설명을 뜻함 -->
+    <meta name="robots" content="ALL">
+    <!-- 로봇 메타태그를 사용하여 구글 검색결과에서 사용자에게 게재되는 방식을 제어하는 자세한 페이지별 접근방식을 활용할 수 있음 기존은 all을 사용함 -->
+    <meta name="author" content="">
+    <!--  author 항목은 문서의 저자를 정의하는 예제 -->
+    <meta name="generator" content="">
+    <!-- 문서 작성에 사용한 저작 도구를 지정한다. 저작자가 저작 도구를 사용하지 않고 직접 작성한 때에는 이 속성값을 사용하지 않는다. -->
+    <meta http-equiv="refresh" content="">
+    <!-- 문서의 새로고침을 지정한다. 이값은 초단위의 시간주기를 의미하고 이때 url을 지정하면 새로고침과 동시에 url에 있는 문서로 자동 이동한다. -->
+    <meta property="og:type" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <!-- OPEN GRAPH 메타태그의 경우 페이스북에 표출되어지는 메타태그이다. -->
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:description" content="" />
+    <!-- 트위터에서 표출되어지는 메타태그를 뜻한다. -->
+    <link rel="canonical" href="https://www.duo.co.kr">
+    <!-- 중복 url 방지를 위한 태그 -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/import.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrap wai">
+
+        <header>	
+            <h1>마블 <span>웹퍼블리싱 가이드</span></h1>	
+            <nav class="gnb">		
+                <ul>			
+                    <li><a href="../publish/pub_guide.html">기본정책</a></li>			
+                    <li><a href="../convention/rule_standard.html">규칙 가이드</a></li>			
+                    <li><a href="../plan/plan_general.html">설계 가이드</a></li>				
+                    <li><a href="../accessibility/wa_intro.html">웹접근성 점검</a></li>		
+                </ul>	
+            </nav>	<a href="../index.html" class="home">HOME</a>
+        </header>
+        
+        <div class="container">
+            <aside>
+                <ul class="lnb lnb_02">	
+                    <li class="on"><a href="../plan/plan_general.html">General</a></li>	
+                    <li><a href="../plan/plan_wai.html">WAI-ARIA</a></li>
+                    <li><a href="../plan/plan_source.html">Source Root</a></li>
+                </ul>
+            </aside>
+            <div class="contents">
+                <h2>General</h2>
+
+                <div class="mg_b_30">
+                    <h3>접두어</h3>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>접두어</caption>
+                            <colgroup>
+                                <col style="width:25%">
+                                <col style="width:25%">
+                                <col style="width:auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">구분</th>
+                                    <th scope="col">예약어</th>
+                                    <th scope="col">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>기기</td>
+                                    <td>dv-</td>
+                                    <td>운영체제, 브라우저, 디바이스, 버전, 가로모드</td>
+                                </tr>
+                                <!--
+                                <tr>
+                                    <td>기능</td>
+                                    <td>js-</td>
+                                    <td>javascript 축약어</td>
+                                </tr>
+                                -->
+                                <tr>
+                                    <td>상태</td>
+                                    <td>is-</td>
+                                    <td>~이다.</td>
+                                </tr>
+                                <tr>
+                                    <td>확장</td>
+                                    <td>has-</td>
+                                    <td>~있다.</td>
+                                </tr>
+                                <tr>
+                                    <td>종류</td>
+                                    <td>type-</td>
+                                    <td>유형구분</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>범위</h3>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <colgroup>
+                                <col style="width:25%">
+                                <col style="width:25%">
+                                <col style="width:auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">적용요소</th>
+                                    <th scope="col">예약어</th>
+                                    <th scope="col">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>body</td>
+                                    <td>.theme-, .dv-</td>
+                                    <td>전체 구분 (예) .theme-orange, .dv-ios</td>
+                                </tr>
+                                <tr>
+                                    <td>.wrapper</td>
+                                    <td>-wapper</td>
+                                    <td>레이아웃 구분 (예) .main-wrapper, .intro-wrapper</td>
+                                </tr>
+                                <tr>
+                                    <td>.content</td>
+                                    <td>-page</td>
+                                    <td>페이지 구분 (예) .main-page, .noticeList-page, noticeDetail-page</td>
+                                </tr>
+                                <tr>
+                                    <td>section</td>
+                                    <td>-sec</td>
+                                    <td>섹션 구분 (예) .visual-sec, .board-sec, .history-sec</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>영역</h3>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>공통그룹</caption>
+                            <colgroup>
+                                <col style="width:25%">
+                                <col style="width:25%">
+                                <col style="width:auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">구분</th>
+                                    <th scope="col">예약어</th>
+                                    <th scope="col">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>전체 영역</td>
+                                    <td>-wrap</td>
+                                    <td>컨텐츠의 전체영역</td>
+                                </tr>
+                                <tr>
+                                    <td>바깥 영역</td>
+                                    <td>-area</td>
+                                    <td>UI 영역단위로 그룹화한다.</td>
+                                </tr>
+                                <tr>
+                                    <td>반복 영역</td>
+                                    <td>-group</td>
+                                    <td>연속적인 엘리먼트를 그룹화한다.</td>
+                                </tr>
+                                <tr>
+                                    <td>안쪽 영역</td>
+                                    <td>-inner</td>
+                                    <td>내부영역 2중 처리</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>구조</h3>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>영역구분</caption>
+                            <colgroup>
+                                <col style="width:25%">
+                                <col style="width:25%">
+                                <col style="width:auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">구분</th>
+                                    <th scope="col">예약어</th>
+                                    <th scope="col">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>머리글 영역</td>
+                                    <td>-header</td>
+                                    <td>전체영역의 목차포함</td>
+                                </tr>
+                                <tr>
+                                    <td>본문 영역</td>
+                                    <td>-container</td>
+                                    <td>전체영역의 본문</td>
+                                </tr>
+                                <tr>
+                                    <td>바닥글 영역</td>
+                                    <td>-footer</td>
+                                    <td>전체영역의 바닥글</td>
+                                </tr>
+                                <tr>
+                                    <td>제목 영역</td>
+                                    <td>-title</td>
+                                    <td>전체내용 중 일부의 제목</td>
+                                </tr>
+                                <tr>
+                                    <td>본문 영역</td>
+                                    <td>-content</td>
+                                    <td>전체내용 중 일부의 내용</td>
+                                </tr>
+                                <tr>
+                                    <td>네비게이션</td>
+                                    <td>-nav</td>
+                                    <td>탐색 역할을 갖는 범위의 메뉴 (예) .tab-nav</td>
+                                </tr>
+                                <tr>
+                                    <td>메뉴</td>
+                                    <td>-menu</td>
+                                    <td>탐색 역할이 없는 선택목록 메뉴 (예) .drop-menu, .select-menu</td>
+                                </tr>
+                                <tr>
+                                    <td>목록</td>
+                                    <td>-list</td>
+                                    <td>ul, ol 에 해당하는 반복되는 목록그룹</td>
+                                </tr>
+                                <tr>
+                                    <td>항목</td>
+                                    <td>-item</td>
+                                    <td>리스트 항목</td>
+                                </tr>
+                                <tr>
+                                    <td>콘텐츠 안에 내역</td>
+                                    <td>-inner</td>
+                                    <td>콘텐츠 내부 영역</td>
+                                </tr>
+                                <tr>
+                                    <td>링크</td>
+                                    <td>-link</td>
+                                    <td>링크 항목</td>
+                                </tr>
+                                <tr>
+                                    <td>텍스트</td>
+                                    <td>-txt</td>
+                                    <td>텍스트만 별도로 마크업하는 경우</td>
+                                </tr>
+                                <tr>
+                                    <td>토글버튼</td>
+                                    <td>-toggle</td>
+                                    <td>토글 기능을 갖는 버튼</td>
+                                </tr>
+                                <tr>
+                                    <td>열기버튼</td>
+                                    <td>-open</td>
+                                    <td>열기 기능을 갖는 버튼</td>
+                                </tr>
+                                <tr>
+                                    <td>닫기버튼</td>
+                                    <td>-close</td>
+                                    <td>닫기 기능을 갖는 버튼</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>레이아웃</h3>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>레이아웃</caption>
+                            <colgroup>
+                                <col style="width:25%">
+                                <col style="width:25%">
+                                <col style="width:auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">구분</th>
+                                    <th scope="col">예약어</th>
+                                    <th scope="col">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>융통성</td>
+                                    <td>.flex</td>
+                                    <td>확대, 축소가 가능한 너비를 갖는다.</td>
+                                </tr>
+                                <tr>
+                                    <td>동일성</td>
+                                    <td>.table</td>
+                                    <td>개수만큼 균등분할 한다.</td>
+                                </tr>
+                                <tr>
+                                    <td>유연성</td>
+                                    <td>.fluid</td>
+                                    <td>전체너비를 갖는다.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>컴포넌트</h3>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption></caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">분류</th>
+                                    <th scope="col">구분</th>
+                                    <th scope="col">예약어</th>
+                                    <th scope="col">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="7">Form</td>
+                                    <td>Text Field</td>
+                                    <td>.input-</td>
+                                    <td>입력필드</td>
+                                </tr>
+                                <tr>
+                                    <td>Text Area</td>
+                                    <td>.textarea-</td>
+                                    <td>입력영역</td>
+                                </tr>
+                                <tr>
+                                    <td>Select</td>
+                                    <td>.select-</td>
+                                    <td>콤보상자</td>
+                                </tr>
+                                <tr>
+                                    <td>Checkbox</td>
+                                    <td>.check-</td>
+                                    <td>체크박스</td>
+                                </tr>
+                                <tr>
+                                    <td>Radio</td>
+                                    <td>.radio-</td>
+                                    <td>라디오</td>
+                                </tr>
+                                <tr>
+                                    <td>Switch</td>
+                                    <td>.switch-</td>
+                                    <td>스위치</td>
+                                </tr>
+                                <tr>
+                                    <td>File</td>
+                                    <td>.file-</td>
+                                    <td>파일첨부</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="6">Texts</td>
+                                    <td>Split</td>
+                                    <td>.split-</td>
+                                    <td>구분 텍스트</td>
+                                </tr>
+                                <tr>
+                                    <td>Unit</td>
+                                    <td>.unit-</td>
+                                    <td>단위 텍스트</td>
+                                </tr>
+                                <tr>
+                                    <td>Require</td>
+                                    <td>.alert-</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Explain</td>
+                                    <td>.explain-</td>
+                                    <td>설명</td>
+                                </tr>
+                                <tr>
+                                    <td>Require</td>
+                                    <td>.require-</td>
+                                    <td>필수입력 텍스트</td>
+                                </tr>
+                                <tr>
+                                    <td>Message</td>
+                                    <td>.require-</td>
+                                    <td>필수입력 텍스트</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="14">Elements</td>
+                                    <td>Alert</td>
+                                    <td>.alert-</td>
+                                    <td>경고, 상태 알림</td>
+                                </tr>
+                                <tr>
+                                    <td>Buttons</td>
+                                    <td>.btn-</td>
+                                    <td>버튼</td>
+                                </tr>
+                                <tr>
+                                    <td>Icons</td>
+                                    <td>.ico-</td>
+                                    <td>아이콘</td>
+                                </tr>
+                                <tr>
+                                    <td>Labels</td>
+                                    <td>.label-</td>
+                                    <td>이름표</td>
+                                </tr>
+                                <tr>
+                                    <td>Badges</td>
+                                    <td>.badge-</td>
+                                    <td>배지</td>
+                                </tr>
+                                <tr>
+                                    <td>Divider</td>
+                                    <td>.divider-</td>
+                                    <td>영역분할 구분선</td>
+                                </tr>
+                                <tr>
+                                    <td>Bullets</td>
+                                    <td>.bul-</td>
+                                    <td>불릿목록</td>
+                                </tr>
+                                <tr>
+                                    <td>Thumb</td>
+                                    <td>.thumb-</td>
+                                    <td>썸네일</td>
+                                </tr>
+                                <tr>
+                                    <td>Table</td>
+                                    <td>.tbl-</td>
+                                    <td>표</td>
+                                </tr>
+                                <tr>
+                                    <td>Cards</td>
+                                    <td>.card-</td>
+                                    <td>카드 디자인 그룹</td>
+                                </tr>
+                                <tr>
+                                    <td>Panels</td>
+                                    <td>.panel-</td>
+                                    <td>헤더, 바디 등 구조성격이 분명한 그룹</td>
+                                </tr>
+                                <tr>
+                                    <td>Step</td>
+                                    <td>.step-</td>
+                                    <td>단계</td>
+                                </tr>
+                                <tr>
+                                    <td>Paginations</td>
+                                    <td>.pagination-</td>
+                                    <td>페이지 쪽수매기기</td>
+                                </tr>
+                                <tr>
+                                    <td>Progress</td>
+                                    <td>.progress-</td>
+                                    <td>진행바</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>UI Modules</h3>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption></caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">구분</th>
+                                    <th scope="col">예약어</th>
+                                    <th scope="col">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tabs</td>
+                                    <td>.tab-</td>
+                                    <td>탭</td>
+                                </tr>
+                                <tr>
+                                    <td>Accordions</td>
+                                    <td>.acco-</td>
+                                    <td>아코디언</td>
+                                </tr>
+                                <tr>
+                                    <td>Folder</td>
+                                    <td>.folder-</td>
+                                    <td>접기/펴기, 간단히/자세히</td>
+                                </tr>
+                                <tr>
+                                    <td>Tooltips</td>
+                                    <td>.tooltip-</td>
+                                    <td>툴팁 설명</td>
+                                </tr>
+                                <tr>
+                                    <td>Drop (Up/Down)</td>
+                                    <td>.drop-</td>
+                                    <td>드롭다운 메뉴토글</td>
+                                </tr>
+                                <tr>
+                                    <td>Layers</td>
+                                    <td>.layer-</td>
+                                    <td>구분없는 레이어</td>
+                                </tr>
+                                <tr>
+                                    <td>Popup</td>
+                                    <td>.popup-</td>
+                                    <td>팝업</td>
+                                </tr>
+                                <tr>
+                                    <td>Stikcy</td>
+                                    <td>.sticky-</td>
+                                    <td>요소고정</td>
+                                </tr>
+                                <tr>
+                                    <td>Floaing</td>
+                                    <td>.floating-</td>
+                                    <td>요소이동</td>
+                                </tr>
+                                <tr>
+                                    <td>Spy Scroll</td>
+                                    <td>.spyScroll-</td>
+                                    <td>스크롤 이동 시키기</td>
+                                </tr>
+                                <tr>
+                                    <td>Infinite Scroll</td>
+                                    <td>.infScroll-</td>
+                                    <td>스크롤 무한 목록보기</td>
+                                </tr>
+                                <tr>
+                                    <td>Custom Scroll</td>
+                                    <td>.cusScroll-</td>
+                                    <td>스크롤 모양 사용자정의</td>
+                                </tr>
+                                <tr>
+                                    <td>Slide Show</td>
+                                    <td>.carousel-</td>
+                                    <td>슬라이드쇼</td>
+                                </tr>
+                                <tr>
+                                    <td>Zommer</td>
+                                    <td>.zommer-</td>
+                                    <td>이미지확대</td>
+                                </tr>
+                                <tr>
+                                    <td>Youtube API</td>
+                                    <td>.youtube-</td>
+                                    <td>유튜브API</td>
+                                </tr>
+                                <tr>
+                                    <td>Google Map API</td>
+                                    <td>.map-</td>
+                                    <td>구글맵</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>z-index</h3>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>zindex</caption>
+                            <colgroup>
+                                <col style="width:25%">
+                                <col style="width:25%">
+                                <col style="width:auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">구분</th>
+                                    <th scope="col">단위</th>
+                                    <th scope="col">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>인라인</td>
+                                    <td>1</td>
+                                    <td>우선순위 1씩 증가, 기본요소 0</td>
+                                </tr>
+                                <tr>
+                                    <td>그 룹</td>
+                                    <td>10</td>
+                                    <td>우선순위 1씩 증가, 기본요소 10</td>
+                                </tr>
+                                <tr>
+                                    <td>구 조</td>
+                                    <td>100</td>
+                                    <td>우선순위 1씩 증가, 기본요소 100</td>
+                                </tr>
+                                <tr>
+                                    <td>팝 업</td>
+                                    <td>1000</td>
+                                    <td>우선순위 1씩 증가, 기본요소 1000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>성격의미</h3>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>성격의미</caption>
+                            <colgroup>
+                                <col style="width:25%">
+                                <col style="width:25%">
+                                <col style="width:auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">정의</th>
+                                    <th scope="col">예약어</th>
+                                    <th scope="col">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>긍정</td>
+                                    <td>-positive</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>부정</td>
+                                    <td>-negative</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>성공</td>
+                                    <td>-success</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>실패</td>
+                                    <td>-fail</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>주의</td>
+                                    <td>-warring</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>위험</td>
+                                    <td>-danger</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>오류</td>
+                                    <td>-error</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>경고</td>
+                                    <td>-alert</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>안내</td>
+                                    <td>-info</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>속성정의</h3>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>속성정의</caption>
+                            <colgroup>
+                                <col style="width:25%">
+                                <col style="width:25%">
+                                <col style="width:auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">구분</th>
+                                    <th scope="col">속성</th>
+                                    <th scope="col">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>역할정의</td>
+                                    <td>role</td>
+                                    <td>button, text</td>
+                                </tr>
+                                <tr>
+                                    <td>기능정보</td>
+                                    <td>aria-</td>
+                                    <td>-controls, -hidden</td>
+                                </tr>
+                                <tr>
+                                    <td>조건정보</td>
+                                    <td>data-</td>
+                                    <td>사용자정의 속성</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>크기단위</h3>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>크기단위</caption>
+                            <colgroup>
+                                <col style="width:25%">
+                                <col style="width:25%">
+                                <col style="width:auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">구분</th>
+                                    <th scope="col">예약어</th>
+                                    <th scope="col">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>더크게</td>
+                                    <td>-xl</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>크게</td>
+                                    <td>-lg</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>보통</td>
+                                    <td>-md</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>작게</td>
+                                    <td>-sm</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>더작게</td>
+                                    <td>-xs</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>기준단위</h3>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>기준단위</caption>
+                            <colgroup>
+                                <col style="width:25%">
+                                <col style="width:25%">
+                                <col style="width:auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">요소</th>
+                                    <th scope="col">예약어</th>
+                                    <th scope="col">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>최대</td>
+                                    <td>-max</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>표준</td>
+                                    <td>-std</td>
+                                    <td>standard 축약어</td>
+                                </tr>
+                                <tr>
+                                    <td>최소</td>
+                                    <td>-min</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>색상단위</h3>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>명도단위</caption>
+                            <colgroup>
+                                <col style="width:25%">
+                                <col style="width:25%">
+                                <col style="width:auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">구분</th>
+                                    <th scope="col">예약어</th>
+                                    <th scope="col">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>더어두운</td>
+                                    <td>-darker</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>어두운</td>
+                                    <td>-dark</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>밝게</td>
+                                    <td>-light</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>더밝은</td>
+                                    <td>-lighter</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>색상반전</td>
+                                    <td>-invert</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>굵기단위</h3>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>굵기단위</caption>
+                            <colgroup>
+                                <col style="width:25%">
+                                <col style="width:25%">
+                                <col style="width:auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">구분</th>
+                                    <th scope="col">예약어</th>
+                                    <th scope="col">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>더굵은</td>
+                                    <td>-bolder</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>굵은</td>
+                                    <td>-bold</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>얅은</td>
+                                    <td>-thin</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>더얅은</td>
+                                    <td>-thiner</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>꾸미기</h3>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>꾸미기</caption>
+                            <colgroup>
+                                <col style="width:25%">
+                                <col style="width:25%">
+                                <col style="width:auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">구분</th>
+                                    <th scope="col">예약어</th>
+                                    <th scope="col">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>아웃라인</td>
+                                    <td>-outline</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>굵은라인</td>
+                                    <td>-boldline</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>언더라인</td>
+                                    <td>-underline</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script>include.footer()</script>
+
+    </div>
+
+</body>
+
+
+
+</html>

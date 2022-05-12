@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <!-- 문자셋을 의미하며 utf-8 사용 예정 -->
+    <title>웹퍼블리싱 프로세스</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 클라이언트와 서버간의 통신에서 주고 받는 http-equiv 속성으로 콘텐츠 타입을 지정해줌 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;Chromeframe=1">
+    <!--IE8이 개발되면서 생긴 호환성 모드에 대응하기 위한 속성이다. IE=EDGE는 항상 최신의 표준엔진을 사용해 렌더링 하게 된다.  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <!-- 화면 사이즈와 맞춰진다 모바일 브라우저에서 ZOOM을 사용하게 되는 데 최적의 사용환경을 위해 이를 방지해야 할경우 속성을 1로하고 사용자의 확대여부를 막는다. -->
+    <meta name="keywords" content=""> 
+    <!-- keyword 항목은 사이트내의 간략한 키워드를 뜻함 -->
+    <meta name="description" content="">
+    <!-- description 항목은 사이트내의 간략한 설명을 뜻함 -->
+    <meta name="robots" content="ALL">
+    <!-- 로봇 메타태그를 사용하여 구글 검색결과에서 사용자에게 게재되는 방식을 제어하는 자세한 페이지별 접근방식을 활용할 수 있음 기존은 all을 사용함 -->
+    <meta name="author" content="">
+    <!--  author 항목은 문서의 저자를 정의하는 예제 -->
+    <meta name="generator" content="">
+    <!-- 문서 작성에 사용한 저작 도구를 지정한다. 저작자가 저작 도구를 사용하지 않고 직접 작성한 때에는 이 속성값을 사용하지 않는다. -->
+    <meta http-equiv="refresh" content="">
+    <!-- 문서의 새로고침을 지정한다. 이값은 초단위의 시간주기를 의미하고 이때 url을 지정하면 새로고침과 동시에 url에 있는 문서로 자동 이동한다. -->
+    <meta property="og:type" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <!-- OPEN GRAPH 메타태그의 경우 페이스북에 표출되어지는 메타태그이다. -->
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:description" content="" />
+    <!-- 트위터에서 표출되어지는 메타태그를 뜻한다. -->
+    <link rel="canonical" href="https://www.duo.co.kr">
+    <!-- 중복 url 방지를 위한 태그 -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/import.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/pub_process.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+    
+    <h1>* 마블 웹 퍼블리싱 프로세스</h1>
+
+    <a href="../index.html" class="home">HOME</a>
+
+    <table>
+        <caption>* 듀오 웹 퍼블리싱 프로세스</caption>
+        <colgroup>
+            <col style="width:10%">
+            <col style="width:45%">
+            <col style="width:45%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">작업 단계</th>
+                <th scope="col">기술 구현 항목</th>
+                <th scope="col">구현 항목별 코멘트</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="rowgroup" rowspan="4">스토리보드 검토</th>
+                <td>UI/UX 기술 구현 가능 여부 확인</td>
+                <td>논의 후 기능 축소 및 세부 검토</td>
+            </tr>
+            <tr>
+                <td>UI/UX 웹 표준성 제고 여부 검토</td>
+                <td>웹 표준 콘텐츠 지향</td>
+            </tr>
+            <tr>
+                <td>웹 접근성 마크 제고 여부 검토</td>
+                <td>세부 논의 예정</td>
+            </tr>
+            <tr>
+                <td>JS -> 리액트 논의 필요</td>
+                <td>세부 논의 예정</td>
+            </tr>
+            <tr>
+                <th scope="rowgroup" rowspan="2">웹 리소스 구조화</th>
+                <td class="font_red">리소스 폴더 구조 설계 및 생성</td>
+                <td class="font_red">논의 필요</td>
+            </tr>
+            <tr>
+                <td class="font_red">파일 네이밍 가이드 수립</td>
+                <td>김영우/권규형 담당</td>
+            </tr>
+            <tr>
+                <th scope="rowgroup" rowspan="4">시안 검토</th>
+                <td>컨텐츠 분석 및 정보의 논리적 선형화</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>디자인에 따라 구역 분할</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>논리구조에 따른 HTML 문서 구조화</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>공통 CSS, JS 가이드 작성</td>
+                <td>BEM 방식으로 활용</td>
+            </tr>
+            <tr>
+                <th scope="rowgroup" rowspan="9">퍼블리싱</th>
+                <td class="font_red">CSS 가이드 수립, <br>
+                    문서내 ID / Class 구조화 및 정리</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>문서 구조에 따라<br>
+                    시안 PSD 슬라이싱 및 이미지 분할 저장</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="font_red">웹 표준, 웹접근성 지침을 기준으로<br>
+                    JavaScript 사용불가 환경 마크업 진행</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>마크업 유효성 검사</td>
+                <td>W3C Markup Validator 이용</td>
+            </tr>
+            <tr>
+                <td>CSS 작성</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>브라우저 렌더링 화면과 시안 비교</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>JavaScript 사용가능 환경 마크업 / CSS 추가 작성</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>JavaScript 개발</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>JavaScript 오류 테스트</td>
+                <td>IE11, Google Chrome, FireFox, Safari 등 Major 웹 브라우저 동작 테스트</td>
+            </tr>
+            <tr>
+                <th scope="rowgroup">개발 페이지 보수</th>
+                <td>웹표준 검사</td>
+                <td>일부 개발 코드 수정 요청</td>
+            </tr>
+            <tr>
+                <th scope="rowgroup" rowspan="4">산출물 최종 확인</th>
+                <td>브라우저 테스트</td>
+                <td>Major 웹 브라우저 렌더링 및 동작 테스트</td>
+            </tr>
+            <tr>
+                <td>웹 표준 검사</td>
+                <td>W3C Markup Validator 이용</td>
+            </tr>
+            <tr>
+                <td>문서의 논리적/의미론적 구조 수동 검사</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>웹 콘텐츠 최종 검토</td>
+                <td>정량 / 정성 평가 진행</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

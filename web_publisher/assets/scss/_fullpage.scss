@@ -1,0 +1,61 @@
+// fullpage_js navigation
+
+#fp-nav ul li, .fp-slidesNav ul li{
+    width: 1px;
+    height: 20px;
+    position: relative;
+    margin: 0 7px;
+    &:last-of-type{
+        display: none;
+    }
+    > a{
+        span{
+            width: 1px;
+            height: 20px;
+            background: #d1d1d1;
+            border-radius: 0;
+            
+            &:hover{
+                width: 1px;
+                height: 20px;
+                border-radius: 0;
+                background: #d1d1d1;
+                margin: -2px 0 0 -2px;
+            }
+        }
+        &.active {
+            span{
+                width: 1px;
+                height: 20px;
+                border-radius: 0;
+                background: red;
+                margin: -2px 0 0 -2px;
+            }
+        }
+        &.active:hover{
+            span{
+                width: 1px;
+                height: 20px;
+                border-radius: 0;
+                background: red;
+                margin: -2px 0 0 -2px;
+            }
+        }
+      }
+}
+#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span, #fp-nav ul li:hover a.active span, .fp-slidesNav ul li:hover a.active span{
+    width: 1px;
+    height: 20px;
+    border-radius: 0;
+    background: red;
+    margin: -2px 0 0 -2px;
+}
+
+#fp-nav ul li:hover a span, .fp-slidesNav ul li:hover a span{
+    width: 1px;
+    height: 20px;
+    margin: -2px 0 0 -2px;
+}
+#fp-nav ul li:hover .fp-tooltip, #fp-nav.fp-show-active a.active + .fp-tooltip{
+    top: 8px;
+}

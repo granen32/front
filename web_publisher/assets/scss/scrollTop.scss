@@ -1,0 +1,66 @@
+body{
+    background: linear-gradient(150deg, red, black, orange,green, indigo, purple, black);
+    position: relative;
+    overflow-x: hidden;
+}
+h1{
+    color: #fff;
+}
+// 프로그레스 바
+.progress{
+    width: 5px;
+    height: 150px;
+    position: fixed;
+    top: 40%;
+    left: 10px;
+    background: #000;
+    z-index: 10;
+    border-radius:5px;
+    overflow: hidden;
+    &__bar{
+        position: absolute;
+        width: 100%;
+        background: yellow;
+        height: 5px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 11;
+        transition: .2s all;
+    }
+}
+
+// .contents
+.contents{
+    width: 400px;
+    padding:  20px;
+    margin: 0 auto 20px;
+    background: rgba(255,255,255, .3);
+}
+
+.title_type1{
+    color: #333;
+}
+
+.txt_type1{
+    color: #555;
+}
+
+.cloudWrap{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    img{
+        position: absolute;
+        @for $i from 1 through 8 {
+            &:nth-child(#{$i}) {
+                top: calc(#{$i} * 1000px);
+                &:before {
+                    content: '#{$i}';
+                }
+            }
+        }
+    }
+}

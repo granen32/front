@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/* HEADER */
+header {position: fixed; top: 0; left: 0; z-index: 1; width: 100%;}
+header h1 {padding: 1.5rem; font-size: 2.8rem; color: #fff; text-align: center; background: #2f3249; }
+header h1 span {font-weight: 300;}
+header .gnb ul {display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: center; align-content: center;}
+header .gnb ul li {width: 25%; background: #fff; border-bottom: 3px solid #ddd; border-left: 1px solid #ddd; text-align: center;}
+header .gnb ul li.on {color: #4b77be; border-bottom: 3px solid #4b77be;}
+header .gnb ul li a {display: block; padding: 1rem;}
+header .gnb ul li:first-child {border-left: none;}
+header .home {display: block; position: absolute; top: 0; right: 0; padding: 1rem; background: #000; color: #fff;}
+
+/* CONTAINER */
+.container {padding: 11.6rem 0 0 0;}
+.container:after {display: block; content: ''; clear: both;}
+/* ASIDE */
+aside {float: left; width: 20%; min-height: 100vh; padding: 5rem;}
+aside .lnb li {padding: 0 0 1rem 0; transition: all 0.3s;}
+aside .lnb li::before {display: inline-block; content: ''; width: 0.4rem; height: 0.4rem; margin: 0 1rem 0 0; vertical-align: middle; background: #000; border-radius: 0.4rem;}
+aside .lnb li:hover {transform: translateX(1rem);}
+aside .lnb li.on a {color: blueviolet;}
+aside .lnb li.on::before {background: #2f3249;}
+/* CONTENTS */
+.contents {float: left; width: 80%; min-height: 100vh; padding: 5rem; border-left: 1px solid #ddd;}
+.contents h2 {padding: 0 0 3rem 0; font-size: 2.8rem; font-weight: 700;}
+.contents h3 {position: relative; padding: 0 0 1.5rem 1rem; font-size: 2.2rem; font-weight: 400; color: #2f3249;}
+.contents h3::before {display: block; content: ''; position: absolute; top: 1.6rem; left: 0; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: #2f3249;}
+.contents h4 {padding: 0 0 1.5rem 0; font-size: 1.8rem; font-weight: 700;}
+.contents p {text-indent: 0.5rem;}
+.contents p::before {display: inline-block; content: ''; width: 0.4rem; height: 0.4rem; background: #000; margin: 0 1rem 0 0; vertical-align: middle;}
+.contents p a {color: blue; text-decoration: underline;}
+.contents li::before {display: inline-block; content: ''; width: 0.4rem; height: 0.4rem; background: #000; margin: 0 1rem 0 0; vertical-align: middle;}
+.contents ol li::before{content: none;}
+/* FOOTER */
+footer {padding: 1rem 0;font-size: 1.1rem; color: #666; text-align: center; border-top: 1px solid #ddd;}

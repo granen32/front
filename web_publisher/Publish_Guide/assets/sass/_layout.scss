@@ -1,0 +1,28 @@
+/* MARGIN */
+.mg_b_10 {margin-bottom: 1rem;}
+.mg_b_30 {margin-bottom: 3rem;}
+.mg_b_100 {margin-bottom: 10rem;}
+/* FONT COLOR */
+.red_font {color: red;}
+/* TABLE */
+table {font-size: 1.2rem;}
+th {padding: 0.7rem; vertical-align: middle; border: 1px solid #ddd;}
+td {padding: 0.7rem; vertical-align: middle; border: 1px solid #ddd;}
+.layout_table {border-top: 1px solid #000; border-bottom: 1px solid #000;}
+
+.col_tabel th {border-right: none; border-left: none; border-bottom: 1px solid #000; background: #f3f3f3 ;}
+.col_tabel td:first-child {border-left: none;}
+.col_tabel td:last-child {border-right: none;}
+
+.row_tabel {margin: 0 0 5rem 0;}
+.row_tabel th {border-left: none; background: #f3f3f3 ;}
+.row_tabel td {border-right: none;}
+
+.lnb_03 {margin: 0 0 3rem 0;}
+.lnb_03::before {display: block; content: 'Elements'; margin: 0 0 2rem 0; font-size: 2rem;}
+.lnb_04::before {display: block; content: 'Modules'; margin: 0 0 2rem 0; font-size: 2rem;}
+
+.wai_site_list li {padding: 0 0 1rem 0;}
+.wai_site_list a {color: blue; text-decoration: underline;}
+
+.layout__table-meta th{text-align: left;}

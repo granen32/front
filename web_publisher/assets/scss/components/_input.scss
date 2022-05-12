@@ -1,0 +1,509 @@
+// 입력폼 방식
+// check_box
+.check_box{
+    position: relative;
+    input[type="checkbox"]{
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        border: 0;
+        &:checked{
+            &+label{
+                &:active{
+                    &::before{
+                        background: #666c76;
+                    }
+                }
+                &::before{
+                    background: #666c76;
+                }
+            }
+        }
+        & + label{
+            cursor: pointer;
+            position: relative;
+            width: 100%;
+            height: 8rem;
+            font-size: 2rem;
+            font-weight: 400;
+            justify-content: center;
+            z-index: 1;
+            &:active{
+                &::before{
+                    background: #666c76;
+                }
+            }
+            &::before{
+                content: '';
+                position: absolute;
+                display: block;
+                width:100%;
+                z-index: -1;
+                height: 100%;
+                left: 0;
+                top: 0;
+                text-align: center;
+                background: #fff;
+                border:1px solid #b8b8b8;
+                transition: 0.5s all;
+            }
+        }
+    }
+  
+}
+
+// check_box2
+.check_box_type2{
+    position: relative;
+    input[type="checkbox"]{
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        border: 0;
+        &:checked{
+            &+label{
+                &:active{
+                    &::before{
+                        @include background('/img/assets/ic_checkbox_on.png', center top, no-repeat, 100%)
+                    }
+                }
+                &::before{
+                    @include background('/img/assets/ic_checkbox_on.png', center top, no-repeat, 100%)
+                }
+            }
+        }
+        & + label{
+            cursor: pointer;
+            position: relative;
+            width: 100%;
+            font-size: 2rem;
+            display:block;
+            font-weight: 400;
+            padding-left: 4rem;
+            justify-content: center;
+            z-index: 1;
+            &:active{
+                &::before{
+                    @include background('/img/assets/ic_checkbox_on.png', center top, no-repeat, 100%)
+                }
+            }
+            &::before{
+                content: '';
+                position: absolute;
+                display: block;
+                width:3rem;
+                z-index: -1;
+                height: 3rem;
+                left: 0;
+                top: 0;
+                text-align: center;
+                background: #fff;
+                transition: 0.5s all;
+                @include background('/img/assets/ic_checkbox_off.png', center top, no-repeat, 100%)
+            }
+        }
+    }
+  
+}
+
+  // radio_box
+.radio_box{
+    position: relative;
+    &.full{
+        width: 100%;
+    }
+    input[type="radio"]{
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        border: 0;
+        &:checked{
+            &+label{
+                color: #fff;
+                &:active{
+                    &::before{
+                        background: #666c76;
+                    }
+                }
+                &::before{
+                    background: #666c76;
+                    border-color: #666c76;
+                }
+            }
+        }        
+        & + label{
+            cursor: pointer;
+            position: relative;
+            width: 100%;
+            height: 8rem;
+            font-size: 2rem;
+            font-weight: 400;
+            justify-content: center;
+            z-index: 1;
+            &:active{
+                &::before{
+                    background: #666c76;
+                }
+            }
+            &::before{
+                content: '';
+                position: absolute;
+                display: block;
+                width:calc(100% - 1px);
+                z-index: -1;
+                height: calc(100% - 2px);
+                left: 0;
+                top: 0;
+                text-align: center;
+                background: #fff;
+                border:1px solid #b8b8b8;
+                transition: 0.5s all;
+            }
+        }
+    }
+  
+  }
+// select_box
+.select_box{
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    height: 8rem;
+    &::before{
+        content: '';
+        position: absolute;
+        display: block;
+        width: 1.5rem;
+        height: .85rem;
+        transform: translateY(-50%);
+        right: 2.2rem;
+        top: 50%;
+        @include background('/img/assets/ic_select_box--arrow.png', center top, no-repeat, 100%)
+    }
+    label{
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        height: 100%;
+        border:1px solid #b8b8b8;
+        line-height: 8rem;
+        justify-content: center;
+        font-size: 2rem;
+        background: #fff;
+        font-weight: 400;
+        padding: 0 0  0 2rem;
+    }
+    select{
+        width: 100%;
+        height: 100%;
+        border: 0;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        line-height: normal;
+        font-family: inherit;
+        font-size: 2rem;
+        background: #fff;
+        font-weight: 400;
+    }
+  }
+// .input_box
+.input_box{
+    width: 100%;
+    position: relative;
+    label{
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-left: 2rem;
+        line-height: 8rem;
+        height: 8rem;
+        cursor: text;
+        font-size: 2rem;
+        color: #000;
+        font-weight: 400;
+    }
+    input[type="text"],input[type="password"]{
+        width: 100%;
+        height: 8rem;
+        border:1px solid #b8b8b8;
+        padding: 0 0  0 2rem;
+        line-height: 8rem;
+        font-size:2rem;
+        font-weight: 400;
+        color: #000;
+    }
+    
+}
+
+
+// file__box
+.file_box{
+    width: 100%;
+    position: relative;
+    label{
+        width: 100%;
+        height: 8rem;
+        line-height: 8rem;
+        justify-content: center;
+        font-size: 2rem;
+        background: #666c76;
+        font-weight: 400;
+        align-items:center;
+        color: #fff;
+    }
+    // file__form
+    input[type="file"]{
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip:rect(0,0,0,0);
+        border: 0;
+    }
+}
+
+// 라디오 버튼 원형태
+.radio_button {
+    position: relative;
+    &--wrap{
+        padding: 1.5rem 0;
+    }
+    input[type="radio"] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip:rect(0,0,0,0);
+        border: 0;
+        & + label{
+            display: inline-block;
+            position: relative;
+            padding-left: 4.16rem;
+            cursor: pointer;
+            height: 100%;
+            &::before{
+                content: '';
+                position: absolute;
+                left: 0;
+                top: -.5rem;
+                width: 3.35rem;
+                height: 3.35rem;
+                text-align: center;
+                background: #fff;
+                border: 1px solid #b8b8b8;
+                border-radius: 100%;
+            }
+        }
+        &:checked{
+            & + label:before {
+                background: #fff;
+            }
+            & + label:after {
+                content: '';
+                position: absolute;
+                top: 5px;
+                left: 9px;
+                width: 1.375rem;
+                height: 1.375rem;
+                background: #000;;
+                border-radius: 100%;
+            }
+        }
+    }
+}
+
+// 이메일 부분
+.email_list{
+    width: 100%;
+    position: relative;
+    > div{
+        width: 50%;
+    }
+    .input_box{
+        input[type=text],input[type=password]{
+            border-right: 0;
+        }
+    }
+    .select_box{
+        label{
+            border-left: 0;
+        }
+        .input_box{
+            display: none;
+            input[type=text],input[type=password]{
+                border-left: 0;
+                border-right: 1px solid #b8b8b8;
+            }
+        }
+    }
+    &--dot{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+  // 동의 부분
+.Agree__wrap{
+    margin: 3.75rem 0;
+    text-align: left;
+    &--inp{
+        position: relative;
+        margin-bottom: 1.5rem;
+        &:nth-of-type(n+1) ~ :nth-of-type(n+2){
+          input[type=checkbox] + label{
+            color: #7b7b7b;
+          }
+        }
+        input[type=checkbox]{
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip:rect(0,0,0,0);
+            border: 0;
+            & + label{
+                display: block;
+                position: relative;
+                padding-left: 3.5rem;
+                padding-bottom: .5rem;
+                text-align: left;
+                transition: .5s all;
+                cursor: pointer;
+                font-size: 1.8rem;
+                user-select: none;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    text-align: center;
+                    @include background('/img/assets/ic_term_check.png', center top, no-repeat, 100%);
+                }
+                [class*="small__txt_type1"]{
+                    font-size: 1.5rem;
+                }
+            }
+            & + label:active::before,:checked + label:active::before{
+                @include background('/img/assets/ic_term_check_on.png', center top, no-repeat, 100%);
+            }
+            &:checked + label::before{
+                @include background('/img/assets/ic_term_check_on.png', center top, no-repeat, 100%);
+            }
+        }
+        &--more{
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 0;
+          height: 1.8rem;
+          font-size: 1.5rem;
+          color: #000;;
+          font-weight: 300;
+        }
+    }
+  }
+  
+
+.search_box{
+    position: relative;
+    border: 1px solid #000;
+    border-radius: 1rem;
+    overflow: hidden;
+    .search_btn{
+        width: 11.75rem;
+    }
+    .input_box{
+        width: calc(100% - 11.75rem);
+        input[type=text], input[type=password]{
+            border: none;
+            color: #929599;
+        }
+        label{
+            color: #929599;
+            font-weight: 400;
+        }
+    }
+}
+
+
+// .input_box
+.textarea_box{
+    position: relative;
+    border:1px solid #b8b8b8;
+    padding: 2.5rem 2.5rem 1rem 2.5rem;
+    background: #fff;
+    textarea{
+        border: none;
+        width: 100%;
+        height: 6.25rem;
+        resize: none;
+        @include font(2rem, 400);
+        color:#000;
+        &::placeholder{
+            @include font(2rem, 400);
+            color: #000;
+            line-height: 3.5rem;
+        }
+    }
+}
+
+
+// 태어난 날짜
+.bone_List{
+    .select_box{
+        width: 33.3%;
+        &:last-of-type{
+            width: 33.4%;
+            label{
+                border-right: 1px solid #b8b8b8;
+            }
+        }
+        label{
+            border-right: none;
+        }
+    }
+}
+
+// 확인 버튼 있는 이메일 리스트
+.confirm__list  {
+    .email_list{
+        width: calc(100% - 7.5rem);
+    }
+}
+
+// 자기소개 부분 내역
+.self__intro{
+    textarea{
+        min-height: rem(460);
+        &::placeholder{
+            color: #666c76;
+            @include font(rem(11));
+        }
+    }
+}

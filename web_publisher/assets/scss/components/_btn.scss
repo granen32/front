@@ -1,0 +1,31 @@
+.btn-row{
+	@at-root .btn-row, [class*="btn-row--"]{
+		display: inline-flex;
+		position: relative;
+		box-sizing: border-box;
+	}
+}
+
+.ic_btn{
+  @at-root .ic_btn, [class*="ic_btn--"]{
+    position: relative;
+    display: inline-flex;
+  }
+
+}
+
+// 버튼 두개일시
+.two__btn--wrap{
+  width: 100%;
+  [class*="btn-row"]{
+    width: calc(50% - 1.5rem);
+  }
+}
+
+// 버튼 세개일시
+.three__btn--wrap{
+  @include W_division( 100%, 3, 1rem);
+  [class*="btn-row"]{
+    max-width:100%;
+  }
+}

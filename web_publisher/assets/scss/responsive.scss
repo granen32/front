@@ -1,0 +1,21 @@
+@import "_mixin";
+// header footer 공통 하단 부분
+@media all{
+
+}
+
+
+// responsive 320size
+@include mobileVersion1{
+	
+}
+
+// width 375 이상
+@include mobileVersion2{
+	
+}
+
+// width 375 이상
+@include mobileVersion3{
+	
+}

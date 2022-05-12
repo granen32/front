@@ -1,0 +1,77 @@
+.main_img_slider01 .bg {
+  background-image: url("/img/main/m_visaul_bg01.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main_img_slider02 .bg {
+  background-image: url("/img/main/m_visaul_bg02.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main_img_slider03 .bg {
+  background-image: url("/img/main/m_visaul_bg03.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fadein, .fadein_d1, .fadein_d2, .fadein_d3, .fadein_d4, .fadein_d5, .fadein_d6, .fadein_d7, .fadein_d8, .fadein_d9 {
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  -webkit-transition: opacity .5s, -webkit-transform .5s;
+  transition: opacity .5s, -webkit-transform .5s;
+  transition: transform .5s, opacity .5s;
+  transition: transform .5s, opacity .5s, -webkit-transform .5s;
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+}
+
+.fadein_d1 {
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.fadein_d2 {
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+
+.fadein_d3 {
+  -webkit-transition-delay: 0.6s;
+          transition-delay: 0.6s;
+}
+
+.fadein_d4 {
+  -webkit-transition-delay: 0.8s;
+          transition-delay: 0.8s;
+}
+
+.fadein_d5 {
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+}
+
+.fadein_d6 {
+  -webkit-transition-delay: 1.2s;
+          transition-delay: 1.2s;
+}
+
+.fadein_d7 {
+  -webkit-transition-delay: 1.4s;
+          transition-delay: 1.4s;
+}
+
+.fadein_d8 {
+  -webkit-transition-delay: 1.6s;
+          transition-delay: 1.6s;
+}
+
+.fadein_d9 {
+  -webkit-transition-delay: 1.8s;
+          transition-delay: 1.8s;
+}

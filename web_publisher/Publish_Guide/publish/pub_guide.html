@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <!-- 문자셋을 의미하며 euc-kr과 urf-8이 있으나 개발에 따라 변경될 예정 -->
+    <title>웹퍼블리싱 프로세스</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 클라이언트와 서버간의 통신에서 주고 받는 http-equiv 속성으로 콘텐츠 타입을 지정해줌 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;Chromeframe=1">
+    <!--IE8이 개발되면서 생긴 호환성 모드에 대응하기 위한 속성이다. IE=EDGE는 항상 최신의 표준엔진을 사용해 렌더링 하게 된다.  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <!-- 화면 사이즈와 맞춰진다 모바일 브라우저에서 ZOOM을 사용하게 되는 데 최적의 사용환경을 위해 이를 방지해야 할경우 속성을 1로하고 사용자의 확대여부를 막는다. -->
+    <meta name="keywords" content=""> 
+    <!-- keyword 항목은 사이트내의 간략한 키워드를 뜻함 -->
+    <meta name="description" content="">
+    <!-- description 항목은 사이트내의 간략한 설명을 뜻함 -->
+    <meta name="robots" content="ALL">
+    <!-- 로봇 메타태그를 사용하여 구글 검색결과에서 사용자에게 게재되는 방식을 제어하는 자세한 페이지별 접근방식을 활용할 수 있음 기존은 all을 사용함 -->
+    <meta name="author" content="">
+    <!--  author 항목은 문서의 저자를 정의하는 예제 -->
+    <meta name="generator" content="">
+    <!-- 문서 작성에 사용한 저작 도구를 지정한다. 저작자가 저작 도구를 사용하지 않고 직접 작성한 때에는 이 속성값을 사용하지 않는다. -->
+    <meta http-equiv="refresh" content="">
+    <!-- 문서의 새로고침을 지정한다. 이값은 초단위의 시간주기를 의미하고 이때 url을 지정하면 새로고침과 동시에 url에 있는 문서로 자동 이동한다. -->
+    <meta property="og:type" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <!-- OPEN GRAPH 메타태그의 경우 페이스북에 표출되어지는 메타태그이다. -->
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:description" content="" />
+    <!-- 트위터에서 표출되어지는 메타태그를 뜻한다. -->
+    <link rel="canonical" href="https://www.duo.co.kr">
+    <!-- 중복 url 방지를 위한 태그 -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../assets\css\import.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrap">
+
+        <header>	
+            <h1>마블 <span>퍼블리싱 가이드</span></h1>	
+            <nav class="gnb">		
+                <ul>			
+                    <li><a href="../publish/pub_guide.html">기본정책</a></li>			
+                    <li><a href="../convention/rule_standard.html">규칙 가이드</a></li>			
+                    <li><a href="../plan/plan_codeset.html">설계 가이드</a></li>				
+                    <li><a href="../accessibility/wa_intro.html">웹접근성 점검</a></li>		
+                </ul>	
+            </nav>	<a href="../index.html" class="home">HOME</a>
+        </header>
+        <div class="container">
+
+            <div class="contents" style="width: 100%;">
+                <h2>기본 정책</h2>
+
+                <h3>프로젝트 환경</h3>
+                <div class="layout_table row_tabel">
+                    <table>
+                        <caption>프로젝트 환경 정의</caption>
+                        <colgroup>
+                            <col style="width:20%;">
+                            <col style="width:80%;">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">문서 및 버전</th>
+                                <td>HTML5, CSS3(컨버트 버전),SCSS,ES6,REACT</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">인코딩</th>
+                                <td>UTF-8</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">웹 유형</th>
+                                <td>PC, Mobile, Tablet, Responcive</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">PC 웹 호환성</th>
+                                <td>ie11, chrome, firefox, safari</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Mobile 웹 호환성</th>
+                                <td>모바일 호환성 안드로이드 6.0, IOS 버전 8.0이후 ,사파리,크롬,삼성 인터넷</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">웹 접근성</th>
+                                <td>논의 필요</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">해상도 기준 / 디자인 너비</th>
+                                <td>모바일(360~768)/태블릿(769~1023)/PC(1024~**)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>파일&nbsp; &frasl; &nbsp;폴더 규칙</h3>
+
+                <div class="layout_table row_tabel">
+                    <table>
+                        <caption>파일구조</caption>
+                        <colgroup>
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:35%">
+                            <col style="width:45%">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>분류 폴더</th>
+                                <th>서브 폴더</th>
+                                <th>파일 이름</th>
+                                <th>파일 설명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>fonts</td>
+                                <td></td>
+                                <td></td>
+                                <td>웹폰트</td>
+                            </tr>
+                            <tr>
+                                <td>css</td>
+                                <td></td>
+                                <td>SCSS 컴파일된 CSS 파일명</td>
+                                <td>컴파일 된 파일</td>
+                            </tr>
+                            <tr>
+                                <td>scss</td>
+                                <td></td>
+                                <td>
+                                    main.scss<br>
+                                    common.scss<br>
+                                    reset.scss<br>
+                                    sub.scss<br>
+                                    _header.scss<br>
+                                    _footer.scss<br>
+                                    _article.scss<br>
+                                    main.scss<br>
+                                </td>
+                                <td>
+                                    스타일 - CSS 가져오기<br>
+                                    스타일 - 초기화<br>
+                                    스타일 - 공통형태<br>
+                                    스타일 - 레이아웃<br>
+                                    스타일 - 전체영역<br>
+                                    스타일 - 특정화면<br>
+                                    스타일 - 특정컨텐츠<br>
+                                    스타일 - 이벤트 페이지
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>js</td>
+                                <td>libs<br>(라이브러리)</td>
+                                <td>
+                                    jquery.min.js<br>
+                                    html5shiv-printshiv.js
+                                </td>
+                                <td>
+                                    스크립트 - Jquery Core(버전3을 유지할지 1.2 버전 유지할지)<br>
+                                    스크립트 - HTML5 호환성
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>img</td>
+                                <td>
+                                    cmn__img(공통이미지)<br>
+                                    cnt__img(서브 이미지)
+                                </td>
+                                <td>
+                                    아이콘 : ic__filename__용도<br>
+                                    배경 : bg__filename__용도
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>미정</td>
+                                <td>
+
+                                </td>
+                                <td></td>
+                                <td>
+                                    공통페이지<br>
+                                    화면페이지
+                                    협의 후 등록
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>메타 태그의 종류와 규칙
+                </h3>
+
+                <div class="layout_table row_tabel layout__table-meta">
+                    <table>
+                        <caption>프로젝트 환경 정의</caption>
+                        <colgroup>
+                            <col style="width:50%">
+                            <col style="width:50%;">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">&lt;meta charset="utf-8"&gt;</th>
+                                <td>문자셋을 의미하며 공통적인 utf-8을 사용할 예정</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;</th>
+                                <td>클라이언트와 서버간의 통신에서 주고 받는 http-equiv 속성으로 콘텐츠 타입을 지정해줌</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">&lt;meta http-equiv="X-UA-Compatible" content="IE=edge;Chromeframe=1"&gt;</th>
+                                <td>IE8이 개발되면서 생긴 호환성 모드에 대응하기 위한 속성이다. IE=EDGE는 항상 최신의 표준엔진을 사용해 렌더링 하게 된다. </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" /&gt;</th>
+                                <td>화면 사이즈와 맞춰진다 모바일 브라우저에서 ZOOM을 사용하게 되는 데 최적의 사용환경을 위해 이를 방지해야 할경우 속성을 1로하고 사용자의 확대여부를 막는다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">&lt;meta name="keywords" content=""&gt;</th>
+                                <td>keyword 항목은 사이트내의 간략한 키워드를 뜻함</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">&lt;meta name="description"  content=""&gt;</th>
+                                <td>description 항목은 사이트내의 간략한 설명을 뜻함</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">&lt;meta name="robots" content="ALL"&gt;</th>
+                                <td>로봇 메타태그를 사용하여 구글 검색결과에서 사용자에게 게재되는 방식을 제어하는 자세한 페이지별 접근방식을 활용할 수 있음 기존은 all을 사용함</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">&lt;meta name="author" content=""&gt;</th>
+                                <td>author 항목은 문서의 저자를 정의하는 예제</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">&lt;meta name="generator" content=""&gt;</th>
+                                <td>문서 작성에 사용한 저작 도구를 지정한다. 저작자가 저작 도구를 사용하지 않고 직접 작성한 때에는 이 속성값을 사용하지 않는다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">&lt;meta http-equiv="refresh" content=""&gt;</th>
+                                <td>문서의 새로고침을 지정한다. 이값은 초단위의 시간주기를 의미하고 이때 url을 지정하면 새로고침과 동시에 url에 있는 문서로 자동 이동한다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">&lt;meta property="og:type" content=""&gt;<br>&lt;meta property="og:title" content=""&gt;<br>&lt;meta property="og:description" content=""&gt;<br>&lt;meta property="og:image" content=""&gt;<br>&lt;meta property="og:url" content=""&gt;</th>
+                                <td>OPEN GRAPH 메타태그의 경우 페이스북에 표출되어지는 메타태그이다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">&lt;meta name="twitter:title" content="" /&gt;<br>&lt;meta name="twitter:url" content="" /&gt;<br>&lt;meta name="twitter:image" content="" /&gt;<br>&lt;meta name="twitter:description" content="" /&gt;</th>
+                                <td>트위터에서 표출되어지는 메타태그를 뜻한다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">&lt;link rel="canonical" href="미정"&gt;</th>
+                                <td>중복 url 방지를 위한 태그</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

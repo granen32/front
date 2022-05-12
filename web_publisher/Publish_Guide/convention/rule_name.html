@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <!-- 문자셋을 의미하며 euc-kr과 urf-8이 있으나 개발에 따라 변경될 예정 -->
+    <title>웹퍼블리싱 프로세스</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 클라이언트와 서버간의 통신에서 주고 받는 http-equiv 속성으로 콘텐츠 타입을 지정해줌 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;Chromeframe=1">
+    <!--IE8이 개발되면서 생긴 호환성 모드에 대응하기 위한 속성이다. IE=EDGE는 항상 최신의 표준엔진을 사용해 렌더링 하게 된다.  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <!-- 화면 사이즈와 맞춰진다 모바일 브라우저에서 ZOOM을 사용하게 되는 데 최적의 사용환경을 위해 이를 방지해야 할경우 속성을 1로하고 사용자의 확대여부를 막는다. -->
+    <meta name="keywords" content=""> 
+    <!-- keyword 항목은 사이트내의 간략한 키워드를 뜻함 -->
+    <meta name="description" content="">
+    <!-- description 항목은 사이트내의 간략한 설명을 뜻함 -->
+    <meta name="robots" content="ALL">
+    <!-- 로봇 메타태그를 사용하여 구글 검색결과에서 사용자에게 게재되는 방식을 제어하는 자세한 페이지별 접근방식을 활용할 수 있음 기존은 all을 사용함 -->
+    <meta name="author" content="">
+    <!--  author 항목은 문서의 저자를 정의하는 예제 -->
+    <meta name="generator" content="">
+    <!-- 문서 작성에 사용한 저작 도구를 지정한다. 저작자가 저작 도구를 사용하지 않고 직접 작성한 때에는 이 속성값을 사용하지 않는다. -->
+    <meta http-equiv="refresh" content="">
+    <!-- 문서의 새로고침을 지정한다. 이값은 초단위의 시간주기를 의미하고 이때 url을 지정하면 새로고침과 동시에 url에 있는 문서로 자동 이동한다. -->
+    <meta property="og:type" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <!-- OPEN GRAPH 메타태그의 경우 페이스북에 표출되어지는 메타태그이다. -->
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:description" content="" />
+    <!-- 트위터에서 표출되어지는 메타태그를 뜻한다. -->
+    <link rel="canonical" href="https://www.duo.co.kr">
+    <!-- 중복 url 방지를 위한 태그 -->
+    <link rel="shortcut icon" href="../assets/images/duo_icon.ico" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/import.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrap rule">
+
+        <header>	
+            <h1>마블 <span>웹퍼블리싱 가이드</span></h1>	
+            <nav class="gnb">		
+                <ul>			
+                    <li><a href="../publish/pub_guide.html">기본정책</a></li>			
+                    <li><a href="../convention/rule_standard.html">규칙 가이드</a></li>			
+                    <li><a href="../plan/plan_general.html">설계 가이드</a></li>				
+                    <li><a href="../accessibility/wa_intro.html">웹접근성 점검</a></li>		
+                </ul>	
+            </nav>	<a href="../index.html" class="home">HOME</a>
+        </header>
+
+        <div class="container">
+            <aside>
+                <ul class="lnb lnb_01">	
+                    <li><a href="rule_standard.html">표준규칙</a></li>	
+                    <li><a href="rule_code.html">코드규칙</a></li>	
+                    <li class="on"><a href="rule_name.html">네임규칙</a></li>
+                </ul>
+            </aside>
+
+            <div class="contents">
+                <h2>네임 규칙</h2>
+
+
+                <div class="mg_b_30">
+                    <h3>표기법</h3>
+
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>공통 네이밍 규칙 예</caption>
+                            <colgroup>
+                                <col style="width:20%">
+                                <col style="width:25%">
+                                <col style="width:25%">
+                                <col>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>종류</th>
+                                    <th>구분</th>
+                                    <th>네이밍 기준</th>
+                                    <th>예시</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="align-l">ID Selector</td>
+                                    <td class="align-l">사용하지 않음(input type 제외), 사용시 carmel 표기법</td>
+                                    <td class="align-l">개발자와 상의 후 ID명 제작</td>
+                                    <td class="align-l">formInput</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-l">Class Selector</td>
+                                    <td class="align-l">BEM 형식(Block, Element, Modifier)</td>
+                                    <td class="align-l">Block, Element, Modifier 기준</td>
+                                    <td class="align-l">header__navgation--navi_text, header__navigation--wrap</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-l">Image asset_name 통일 시키기</td>
+                                    <td class="align-l">각 block 요소와 결합하여 bem 기법으로 네이밍</td>
+                                    <td class="align-l">BEM과 asset_name 규합<br>icon(ic_Numbering), button(btn),background(bg)</td>
+                                    <td class="align-l">ic__header--btn.png</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-l">파일 및 폴더</td>
+                                    <td class="align-l">협의 필요</td>
+                                    <td class="align-l">협의 필요</td>
+                                    <td class="align-l"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>파일 및 폴더</h3>
+                    <p>개발자와 협의 후 파일 및 폴더명 협의 기존과 다르게 html 폴더는 생성 하지 않음</p>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>ID 선택자</h3>
+                    <p class="mg_b_10">최상위 레이아웃, 폼 요소, 책갈피를 제외하고 id를 사용하지 않는다.</p>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>예약어</caption>
+                            <colgroup>
+                                <col span="2" style="width:25%;">
+                                <col>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>구분</th>
+                                    <th>예약어</th>
+                                    <th>설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="8">사이트 레이아웃</td>
+                                    <td>.wrap</td>
+                                    <td>사이트 전체영역</td>
+                                </tr>
+                                <tr>
+                                    <td>.skipNav</td>
+                                    <td>바로가기 영역</td>
+                                </tr>
+                                <tr>
+                                    <td>.header</td>
+                                    <td>머리글 영역</td>
+                                </tr>
+                                <tr>
+                                    <td>.container</td>
+                                    <td>페이지 영역</td>
+                                </tr>
+                                <tr>
+                                    <td>.aside</td>
+                                    <td>사이드 영역</td>
+                                </tr>
+                                <tr>
+                                    <td>.content</td>
+                                    <td>본문 영역</td>
+                                </tr>
+                                <tr>
+                                    <td>.footer</td>
+                                    <td>바닥글 영역</td>
+                                </tr>
+                                <tr>
+                                    <td>#popXXX</td>
+                                    <td>레이어팝업 페이지별 ID</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>CLASS 선택자</h3>
+                    <p>체인 선택자의 개수는 3개까지 권장한다.</p>
+                    <p>클래스 예약어는 상황에 맞게 선택적으로 참고한다.</p>
+                    <p class="mg_b_10">레이아웃에 한하여 정의된 예시이며, 자세한 내용은 설계가이드를 참고한다.</p>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>예약어</caption>
+                            <colgroup>
+                                <col span="2" style="width:25%;">
+                                <col>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>구분</th>
+                                    <th>예약어</th>
+                                    <th>설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="7">네비게이션</td>
+                                    <td>.anb</td>
+                                    <td>전체메뉴 (All Navigation Bar)</td>
+                                </tr>
+                                <tr>
+                                    <td>.gnb</td>
+                                    <td>대표메뉴 (Global Navigation Bar)</td>
+                                </tr>
+                                <tr>
+                                    <td>.mnb</td>
+                                    <td>모바일메뉴 (Mobile Navigation Bar) : 반응형에서 구분할때 사용</td>
+                                </tr>
+                                <tr>
+                                    <td>.snb</td>
+                                    <td>서브메뉴 (Sub Navigation Bar)</td>
+                                </tr>
+                                <tr>
+                                    <td>.unb</td>
+                                    <td>기타메뉴 (Utility Navigation Bar)</td>
+                                </tr>
+                                <tr>
+                                    <td>.qnb</td>
+                                    <td>빠른메뉴 (Quick Navigation Bar)</td>
+                                </tr>
+                                <tr>
+                                    <td>.fnb</td>
+                                    <td>바닥글메뉴 (Footer Navigation Bar)</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="7">컨텐츠 레이아웃</td>
+                                    <td>.content</td>
+                                    <td>본문 영역</td>
+                                </tr>
+                                <tr>
+                                    <td>.content-header</td>
+                                    <td>본문 헤더 영역</td>
+                                </tr>
+                                <tr>
+                                    <td>.content-body</td>
+                                    <td>본문 내용 영역</td>
+                                </tr>
+                                <tr>
+                                    <td>.section-wrap</td>
+                                    <td>컨텐츠 바깥그룹</td>
+                                </tr>
+                                <tr>
+                                    <td>.section</td>
+                                    <td>컨텐츠 기본그룹</td>
+                                </tr>
+                                <tr>
+                                    <td>.section-header</td>
+                                    <td>컨텐츠 헤더그룹</td>
+                                </tr>
+                                <tr>
+                                    <td>.section-body</td>
+                                    <td>컨텐츠 내용그룹</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mg_b_30">
+                    <h3>이미지 네이밍 규칙</h3>
+                    <p>종류별로 스프라이트 방식을 적용한다.</p>
+                    <p class="mg_b_10">이미지 네이밍의 조합은 '형태_의미_순서_상태'의 순서로 조합한다.</p>
+                    <div class="layout_table col_tabel">
+                        <table>
+                            <caption>이미지 예약어</caption>
+                            <colgroup>
+                                <col span="2" style="width:25%;">
+                                <col>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>분류</th>
+                                    <th>파일명</th>
+                                    <th>설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>아이콘</td>
+                                    <td>ico_</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>화살표</td>
+                                    <td>arw_</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>블릿</td>
+                                    <td>bul_</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>배경</td>
+                                    <td>bg_</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>비주얼</td>
+                                    <td>visual_</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>일반</td>
+                                    <td>img_</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>공통</td>
+                                    <td>cmn_</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>공통</td>
+                                    <td>cnm_</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+// Main __ mixin 선언
+// roboto font
+$roboto: 'Roboto', sans-serif;
+$noto: 'Noto Sans CJK KR',san-serif;
+
+
+// rem 변환기
+@function rem($px) { @return #{$px/8}rem; }
+
+// width 관련 
+@mixin  W_division($w:null,$i:null, $space:null) {
+    width: $w , $space;
+    @for $i from 1 through 12{
+        .w_division#{$i}{
+            width:calc((#{$w} / #{$i}) - #{$space});
+        }
+    }
+}
+
+// 텍스트 관련 믹스인
+// 줄자르기
+@mixin ellipsis($line:null){
+    display: -webkit-box;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+    overflow: hidden;
+}
+// 폰트
+@mixin roboto_font($size:null, $weight:null) {
+    font: {
+        family:$roboto;
+        size: $size;
+        weight: $weight;
+    }
+}
+// 폰트설정
+@mixin font($s, $w:null, $f:null, $f_color1:null) {
+    font: {
+        family: $f;
+        size: $s;
+        weight: $w;
+    }
+    color:$f_color1;
+}
+
+// 가상선택자
+@mixin after($w, $h) {
+    position: relative;
+
+    &::after {
+        display: block;
+        position: absolute;
+        content: '';
+        width: $w;
+        height: $h;
+        @content;
+    }
+}
+
+@mixin before($w, $h) {
+    position: relative;
+
+    &::before {
+        display: block;
+        position: absolute;
+        content: '';
+        width: $w;
+        height: $h;
+        @content;
+    }
+}
+
+// 배경
+@mixin background($imgpath,$position:center top,$repeat: no-repeat, $size:cover) {
+    background: {
+        image: url($imgpath);
+        position: $position;
+        repeat: $repeat;
+        size:$size;
+    }
+}
+
+ // background numbering
+ @for $i from 1 through 3{
+    .main_img_slider0#{$i}{
+        .bg{
+            @include background('/img/main/m_visaul_bg0#{$i}.jpg');
+        }
+    }
+}
+
+// 레이아웃
+@mixin layout{
+    position: relative;
+    margin: 0 auto;
+}
+
+// fadein
+.fadein {
+    opacity: 0;
+    transition: all 1s;
+    transition: transform .5s, opacity .5s;
+    transform: translateY(100px);
+     @for $i from 1 through 9 {
+         &_d#{$i} {
+         transition-delay: .2s*$i;
+         @extend .fadein;
+      }
+    }
+ }
+
+@mixin trans_Top{
+    transition-delay: 1s;
+	transition: transform 1.5s, opacity 3s;
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+// Break Point
+$mobileVersion1:320px;
+$mobileVersion2:376px;
+$mobileVersion3:768px;
+
+// Mixins
+@mixin mobileVersion1 {
+	@media (min-width: #{$mobileVersion1}) and (max-width: #{$mobileVersion2 - 1px}) {
+	  @content;
+	}
+  }
+   
+  @mixin mobileVersion2 {
+	@media (min-width: #{$mobileVersion2}) and (max-width: #{$mobileVersion3 - 1px}) {
+	  @content;
+	}
+  }
+   
+   
+  @mixin mobileVersion3 {
+	@media (min-width: #{$mobileVersion3}) {
+	  @content;
+	}
+  }
+

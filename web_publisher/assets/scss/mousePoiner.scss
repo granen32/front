@@ -1,0 +1,38 @@
+body {
+  position: relative;
+  background-color: black;
+  overflow: hidden;
+}
+
+h1 {
+  color: #fff;
+}
+.human {
+  position: absolute;
+  width:300px;
+  top: 4%;
+  left: calc(50% - 150px);
+  z-index: 100;
+}
+
+/* 3D text 영역 */
+.textWrap {
+  position : absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, 0);
+  width: 60%;
+  z-index : 1;
+  transform-style: preserve-3d; 
+  perspective: 300px;
+}
+.bg {
+  width: 120%;
+}
+.pipe {
+  position: absolute;
+  z-index : 100;
+  width: 700px;
+  top:10%;
+  left:-200px;
+}

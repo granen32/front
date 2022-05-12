@@ -1,0 +1,96 @@
+{
+  "days": [
+    {
+      "id": 1,
+      "day": 1
+    },
+    {
+      "id": 2,
+      "day": 2
+    },
+    {
+      "id": 3,
+      "day": 3
+    },
+    {
+      "day": 4,
+      "isDone": false,
+      "id": 4
+    },
+    {
+      "day": 5,
+      "isDone": false,
+      "id": 5
+    },
+    {
+      "day": 6,
+      "isDone": false,
+      "id": 6
+    }
+  ],
+  "words": [
+    {
+      "id": 1,
+      "day": 1,
+      "eng": "book",
+      "kor": "책",
+      "isDone": true
+    },
+    {
+      "id": 2,
+      "day": 1,
+      "eng": "apple",
+      "kor": "사과",
+      "isDone": true
+    },
+    {
+      "id": 3,
+      "day": 2,
+      "eng": "car",
+      "kor": "자동차",
+      "isDone": false
+    },
+    {
+      "id": 4,
+      "day": 2,
+      "eng": "book4",
+      "kor": "책",
+      "isDone": false
+    },
+    {
+      "id": 5,
+      "day": 3,
+      "eng": "book5",
+      "kor": "책",
+      "isDone": false
+    },
+    {
+      "id": 6,
+      "day": 3,
+      "eng": "book6",
+      "kor": "책",
+      "isDone": false
+    },
+    {
+      "day": "1",
+      "eng": "computer",
+      "kor": "컴퓨터",
+      "isDone": false,
+      "id": 7
+    },
+    {
+      "day": "2",
+      "eng": "house",
+      "kor": "집",
+      "isDone": false,
+      "id": 8
+    },
+    {
+      "day": "5",
+      "eng": "Add",
+      "kor": "추가",
+      "isDone": false,
+      "id": 10
+    }
+  ]
+}

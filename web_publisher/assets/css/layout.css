@@ -1,61 +1,47 @@
 .l-row, [class*="l-row--"] {
   display: -ms-flexbox;
   position: relative;
-  display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
   -ms-flex-wrap: wrap;
 }
 
 .l-row--reverse {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-          flex-direction: row-reverse;
-  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .l-row--between {
-  -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   -ms-flex-pack: justify;
 }
 
 .l-row--around {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .l-row--v-center {
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   -ms-flex-align: center;
 }
 
 .l-row--c-cnter {
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  align-items: center;
+  flex-direction: column;
   -ms-flex-align: center;
 }
 
 .l-row--h-start {
-  -webkit-box-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
   -ms-flex-pack: start;
 }
 
 .l-row--h-center {
-  -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   -ms-flex-pack: center;
 }
 
 .l-row--h-end {
-  -webkit-box-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
   -ms-flex-pack: end;
   text-align: right;
 }
@@ -63,52 +49,41 @@
 .i-row, [class*="i-row--"] {
   display: -ms-flexbox;
   position: relative;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   flex-wrap: wrap;
   -ms-flex-wrap: wrap;
 }
 
 .i-row--reverse {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-          flex-direction: row-reverse;
-  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .i-row--between {
-  -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   -ms-flex-pack: justify;
 }
 
 .i-row--around {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .i-row--v-center {
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   -ms-flex-align: center;
 }
 
 .i-row--h-start {
-  -webkit-box-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
   -ms-flex-pack: start;
 }
 
 .i-row--h-center {
-  -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   -ms-flex-pack: center;
 }
 
 .i-row--h-end {
-  -webkit-box-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
   -ms-flex-pack: end;
   text-align: right;
 }
@@ -116,55 +91,42 @@
 .l-col, [class*="l-col--"] {
   display: -ms-flexbox;
   position: relative;
-  display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
   -ms-flex-wrap: wrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .l-col--reverse {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-          flex-direction: column-reverse;
-  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
 }
 
 .l-col--between {
-  -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   -ms-flex-pack: justify;
 }
 
 .l-col--around {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .l-col--v-center {
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   -ms-flex-align: center;
 }
 
 .l-col--h-start {
-  -webkit-box-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
   -ms-flex-pack: start;
 }
 
 .l-col--h-center {
-  -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   -ms-flex-pack: center;
 }
 
 .l-col--h-end {
-  -webkit-box-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
   -ms-flex-pack: end;
   text-align: right;
 }

@@ -22,14 +22,11 @@ h1 {
   position: absolute;
   left: 50%;
   top: 10%;
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
   width: 60%;
   z-index: 1;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-perspective: 300px;
-          perspective: 300px;
+  transform-style: preserve-3d;
+  perspective: 300px;
 }
 
 .bg {

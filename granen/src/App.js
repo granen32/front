@@ -1,10 +1,10 @@
 import Button from "./component/Button";
-import "./assets/css/common.css";
+import styles from "./assets/css/App.module.css";
 function App() {
   return (
     <>
-      <h1>hi react</h1>
-			<Button/>
+      <h1 className={styles.title}>hi react</h1>
+			<Button text="Continue"/>
     </>
   );
 }

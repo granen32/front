@@ -57,7 +57,6 @@ textarea {
 }
 
 [type="checkbox"], [type="radio"] {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0;
 }
@@ -82,7 +81,6 @@ textarea {
 
 abbr[title] {
   border-bottom: none;
-  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
 }
 
@@ -116,7 +114,6 @@ menu, nav, output, ruby, section, summary, time, mark, audio, video {
   vertical-align: baseline;
   font-size: inherit;
   color: inherit;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -168,9 +165,6 @@ sub {
 }
 
 button, select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
   appearance: none;
 }
 
@@ -374,23 +368,12 @@ header h1 span {
 }
 
 header .gnb ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
 }
 
 header .gnb ul li {
@@ -446,7 +429,6 @@ aside {
 
 aside .lnb li {
   padding: 0 0 1rem 0;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
@@ -462,8 +444,7 @@ aside .lnb li::before {
 }
 
 aside .lnb li:hover {
-  -webkit-transform: translateX(1rem);
-          transform: translateX(1rem);
+  transform: translateX(1rem);
 }
 
 aside .lnb li.on a {

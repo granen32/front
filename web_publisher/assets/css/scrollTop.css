@@ -27,10 +27,8 @@ h1 {
   height: 5px;
   top: 0;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   z-index: 11;
-  -webkit-transition: .2s all;
   transition: .2s all;
 }
 

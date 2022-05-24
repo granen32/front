@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,GAAG,CAAA;EACC,QAAQ,EAAE,QAAQ;CACrB;;AAED,AAAA,IAAI,CAAA;EACA,QAAQ,EAAE,QAAQ;CACrB",
+    "sources": [
+        "backgroundMove.scss"
+    ],
+    "names": [],
+    "file": "backgroundMove.css"
+}

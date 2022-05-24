@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAA;EACJ,gBAAgB,EAAE,MAAM;CAC3B;;AAED,AAAA,QAAQ,CAAA;EACJ,gBAAgB,EAAE,SAAS;CAC9B",
+    "sources": [
+        "ValidationSample.scss"
+    ],
+    "names": [],
+    "file": "ValidationSample.css"
+}

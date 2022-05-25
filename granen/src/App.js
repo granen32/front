@@ -32,7 +32,7 @@ function App() {
       <hr/>
       <ul>
         {todos.map((item, index) => <li key={index}>{item}</li> )}
-        {/*  */}
+        {/* 같은 component 의 list를 전부 인식하기 때문에 각각의 값을 할당해줘야함  */}
       </ul>
 
     </form>

@@ -13,9 +13,9 @@ function App() {
     if(todo === ""){
       return
     }
-    setTodo("");
     setTodos((currentTodo => [todo, ...currentTodo]));
-
+    // 값을 담아줌 새로운 state 생성
+    setTodo("");
   }
   console.log(todos);
   return (
@@ -29,6 +29,12 @@ function App() {
         placeholder="Write your to do..."
       />
       <button>submit</button>
+      <hr/>
+      <ul>
+        {todos.map((item, index) => <li key={index}>{item}</li> )}
+        {/*  */}
+      </ul>
+
     </form>
 
     </>

@@ -1,6 +1,6 @@
-import Movie from './component/Movie';
 import { useState,useEffect } from 'react';
 import { PropTypes } from 'prop-types';
+import Movie from '../component/Movie';
 
 const Home = () => {
   const [loading, setLoading] =useState(true);
@@ -27,6 +27,7 @@ const Home = () => {
     <>
       {loading ? <h1>Loading ...</h1> : movies.map((movie) => 
       <Movie 
+        id={movie.id}
         key={movie.id}
         coverImg={movie.medium_cover_image} 
         title={movie.title}
@@ -38,10 +39,11 @@ const Home = () => {
   )
 }
 Movie.PropTypes= {
+  id: PropTypes.number.isRequired,
   coverImg :PropTypes.string.isRequired,
   title:PropTypes.string.isRequired,
   summary:PropTypes.string.isRequired,
-  genres: PropTypes.arrayOf(PropTypes.string.isRequired)
+  genres: PropTypes.arrayOf(PropTypes.string.isRequired),
 }
 
-export default Home
+export default Home;

@@ -15,9 +15,9 @@ function App() {
   <Router>
     <Routes>
       {/* 기존 스위치 */}
-      <Route path="movie/:id" element={<Detail/>} />
+      <Route path={process.env.PUBLIC_URL + "/movie/:id"} element={<Detail/>} />
       {/* :id 는 파라매터를 붙여주는 거다. */}
-      <Route path="/" element={<Home/>} />
+      <Route path={process.env.PUBLIC_URL + "/"} element={<Home/>} />
     </Routes>
   </Router>
   );

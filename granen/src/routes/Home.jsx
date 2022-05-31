@@ -1,7 +1,7 @@
 import { useState,useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 import Movie from '../component/Movie';
-
+import styles from "../assets/css/Home.module.css";
 const Home = () => {
   const [loading, setLoading] =useState(true);
   // 로딩 컨트롤
@@ -25,16 +25,30 @@ const Home = () => {
   // 디펜더시는 실행 없음
   return (
     <>
-      {loading ? <h1>Loading ...</h1> : movies.map((movie) => 
-      <Movie 
-        id={movie.id}
-        key={movie.id}
-        coverImg={movie.medium_cover_image} 
-        title={movie.title}
-        summary={movie.summary}
-        genres={movie.genres}
-      />
-    )}
+    <div className={styles.container}>
+    {loading ? 
+    (
+      <header className={styles.loader}>
+        <span>Loading ...</span>
+      </header>
+    )
+     : 
+     (
+       <section className={styles.movies}>
+         {
+           movies.map((movie) =>(
+            <Movie 
+              id={movie.id}
+              key={movie.id}
+              coverImg={movie.medium_cover_image} 
+              title={movie.title}
+              summary={movie.summary}
+              genres={movie.genres}
+            />
+           ))}
+       </section>
+     )}
+    </div>
     </>
   )
 }

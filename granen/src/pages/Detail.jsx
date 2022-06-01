@@ -9,7 +9,6 @@ const Detail = () => {
       const json = await(
         await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)).json();
         setMovie(json.data.movie);
-        console.log(json);
         // 영화정보 id를 가져와서 보여줌
     };
     getMovie();

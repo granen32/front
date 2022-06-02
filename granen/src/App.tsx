@@ -1,7 +1,7 @@
 import React from "react";
 import Detail from "./pages/Detail";
 import Home from "./pages/Home";
-import Coinlst from './pages/Coinlst';
+// import Coinlst from './pages/Coinlst';
 // import Main from './pages/Main';
 import {
   BrowserRouter as Router,
@@ -19,7 +19,7 @@ function App() {
       <Route path="/movie/:id" element={<Detail/>} />
       {/* :id 는 파라매터를 붙여주는 거다. */}
       <Route path={process.env.PUBLIC_URL + "/"} element={<Home/>} />
-      <Route path="/coinlist" element={<Coinlst/>} />
+      {/* <Route path="/coinlist" element={<Coinlst/>} /> */}
     </Routes>
   </Router>
   );

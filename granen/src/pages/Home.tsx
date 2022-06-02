@@ -1,8 +1,17 @@
 import { useState,useEffect } from 'react';
-import { PropTypes } from 'prop-types';
 import Movie from '../component/Movie';
-import styles from "../assets/css/Home.module.css";
+import styles from "../assets/scss/Home.module.scss";
 import  axios  from 'axios';
+
+export type MovieProps = {
+  id : number,
+  key: number,
+  coverImg: string,
+  title: string,
+  summary: string,
+  genres: string[]
+}
+
 const Home = () => {
   const [loading, setLoading] =useState(true);
   // 로딩 컨트롤
@@ -50,12 +59,4 @@ const Home = () => {
     </>
   )
 }
-Movie.PropTypes= {
-  id: PropTypes.number.isRequired,
-  coverImg :PropTypes.string.isRequired,
-  title:PropTypes.string.isRequired,
-  summary:PropTypes.string.isRequired,
-  genres: PropTypes.arrayOf(PropTypes.string.isRequired),
-}
-
 export default Home;

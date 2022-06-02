@@ -1,7 +1,7 @@
 export interface MovieType {
     id : number;
     key : number;
-    coverImg : string;
+    medium_cover_image : string;
     title : string;
     summary: string;
     genres : string[];

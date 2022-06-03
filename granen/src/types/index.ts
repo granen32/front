@@ -7,3 +7,14 @@ export interface MovieType {
     genres : string[];
     year :number;
 }
+
+export interface TodosType {
+    
+}
+
+
+export interface TodoType {
+    id: number; 
+    text: string; 
+    done: boolean
+}

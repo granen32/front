@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { TodoType,TodosType } from "../types" 
 const  Todo = ()=> {
   const [todo, setTodo] = useState("");
   // 인풋값 벨류 받아서 만들 투두라 스트링으로 해야함
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState<TodosType[]>([]);
   // 리스트 파악해야해서 배열로 받아야함
   const onChange = (event) =>{
     setTodo(event.target.value);

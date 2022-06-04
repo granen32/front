@@ -16,3 +16,8 @@ console.log(age * tall);
 // 이런 경우 묵시적인 형변환이라 한다 자바스크립트에서 묵시적으로 형변환을 연산해줌
 console.log(age + tall2);
 // 하지만  + 더하기 같은 경우에는 묵시적인 형변환이 아니기 때문에 문자열로 더하게 된다.
+
+let transNumber = parseInt(tall2);
+console.log(transNumber);
+
+// parseint 는 형태를 변환을 해주고 이런 경우는 명시적인 형변환 이라 한다.

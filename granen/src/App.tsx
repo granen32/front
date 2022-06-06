@@ -3,6 +3,7 @@ import Detail from "./pages/Detail";
 import Home from "./pages/Home";
 // import Coinlst from './pages/Coinlst';
 // import Main from './pages/Main';
+import ChromeTodo from "./pages/ChromeTodo";
 import {
   BrowserRouter as Router,
   Routes,
@@ -20,6 +21,7 @@ function App() {
       {/* :id 는 파라매터를 붙여주는 거다. */}
       <Route path={process.env.PUBLIC_URL + "/"} element={<Home/>} />
       {/* <Route path="/coinlist" element={<Coinlst/>} /> */}
+      <Route path={"/ChromeTodo"} element={<ChromeTodo/>} />
     </Routes>
   </Router>
   );

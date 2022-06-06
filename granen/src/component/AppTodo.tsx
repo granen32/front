@@ -11,7 +11,7 @@ export const AppTodo = () => {
   return (
     <>
       <form className="hidden" id="login-form">
-      <input required value={todo} type="text" placeholder="What is your name" onChange={onChange}/>
+      <input required type="text" placeholder="What is your name" onChange={onChange}/>
       <input type="submit" value="Log In" />
       </form>
     </>

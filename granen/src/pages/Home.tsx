@@ -33,15 +33,15 @@ const Home = () => {
      (
        <section className={styles.movies}>
          {
-           movies.map((movie) =>(
+           movies.map(({id,medium_cover_image,title,summary,year,genres}) =>(
             <Movie 
-              id={movie.id}
-              key={movie.id}
-              medium_cover_image={movie.medium_cover_image} 
-              title={movie.title}
-              summary={movie.summary}
-              genres={movie.genres}
-              year={movie.year}
+              id={id}
+              key={id}
+              medium_cover_image={medium_cover_image} 
+              title={title}
+              summary={summary}
+              genres={genres}
+              year={year}
             />
            ))}
        </section>

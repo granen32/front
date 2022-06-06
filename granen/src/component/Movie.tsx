@@ -12,7 +12,7 @@ export const Movie = ({id, medium_cover_image, title, year,summary,genres} : Mov
       <h3 className={styles.movie__year}>{year}</h3>
       <p>{summary.length > 235 ? `${summary.slice(0, 120)}...` :  summary}</p>
       <ul>
-        {genres.map((e) => <li key={e}>{e}</li>)}
+        {genres.map((genre) => <li key={genre}>{genre}</li>)}
       </ul>
     </div>
   )

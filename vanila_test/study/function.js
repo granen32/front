@@ -1,4 +1,5 @@
 let width1 = 10;
+import Hello from '../../react/react_practice/src/pages/Hello';
 let height1 = 20;
 let area =width1 *height1;
 console.log(area);
@@ -49,4 +50,21 @@ console.log(araa2);
 let hello = function (){
   return "안녕하세요 여러분";
 }
+// 함수 표현식이라 한다.
 console.log(hello);
+
+// 함수 선언식 vs 함수 표현식의 차이
+// 함수 선언식은 호이스팅이 되기 때문이다.
+
+console.log(helloB);
+
+let helloA = () => {
+  return "안녕하세요 여러분";
+  // 함수 표현식
+}
+
+function helloB(){
+return "안녕하세요 여러분"
+// 함수 선언식
+}
+// 함수 선언식은 실현시 호이스팅 발생 하지만 함수 표현식은 호이스팅x

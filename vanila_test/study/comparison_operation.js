@@ -7,5 +7,10 @@ compareA = 1 === "1";
 // === 동들 비교연산자를 활용하면 된다
 
 // != 
-
+// typeof는 변수의 자료형을 알 수 있게 해준다.
 console.log(typeof compareA);
+
+// 널 병합 연산자
+a = a ?? 10;
+// a ?? 10은 언디파인드면 10를 할당해라
+console.log(a);

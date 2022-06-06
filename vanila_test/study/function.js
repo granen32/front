@@ -11,7 +11,7 @@ console.log(area);
 function myFunc(theObject) {
   theObject.make = "Toyota";
 }
-
+// 함수 선언 및 함수정의를 하는 걸 얘기한다.
 var mycar = {make: "Honda", model: "Accord", year: 1998};
 var x, y;
 
@@ -32,3 +32,21 @@ console.log(square(5));
 // 함수의 범위
 // 함수 내에서 정의된 변수는 tdz에 걸려서 함수의 범위에서만 호라용이 가능하다. 그러나 함수가 정의된 모든 변수나 함수는 접근 할 수가 있다.
 // 즉 전역변수는 모든 전역변수를 액세스 할수 있고 다른 함수내에서 정의된 함수는 부모함수와 부모함수가 액세스 할수 있는 다른 변수에 정의된 모든 변수를 가져올 수 있다.
+
+
+function getArea(width,height){
+  let area = width *height;
+  console.log(area);
+  // 결과 값 같은 걸 받아보고 싶을 때는 
+  return area;
+  // 겟에어리어 리턴받는 값을 반환하게됨
+}
+
+let araa2 =getArea(100,200);
+console.log(araa2);
+
+// 함수 표현식
+let hello = function (){
+  return "안녕하세요 여러분";
+}
+console.log(hello);

@@ -1,5 +1,4 @@
 let width1 = 10;
-import Hello from '../../react/react_practice/src/pages/Hello';
 let height1 = 20;
 let area =width1 *height1;
 console.log(area);
@@ -68,3 +67,4 @@ return "안녕하세요 여러분"
 // 함수 선언식
 }
 // 함수 선언식은 실현시 호이스팅 발생 하지만 함수 표현식은 호이스팅x
+

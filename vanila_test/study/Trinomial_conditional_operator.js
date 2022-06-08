@@ -16,3 +16,11 @@ console.log(true && true);
 console.log(false && true);
 // 이런 경우라면 왼쪽이 falsy 하니 바로 연산이 종류된다.
 
+const getName= (person)  =>{
+  const name = person && person.name;
+  return name || "객체가 아닙니다.";
+}
+let person = null;
+const name = getName(person);
+console.log(name);
+

@@ -9,7 +9,12 @@ export interface MovieType {
 }
 
 export interface todoType {
-   id: string;  
    text: string;  
    isDone: boolean;
 }
+
+export interface todosType {
+    id: string;  
+    text: string;  
+    isDone: boolean;
+ }

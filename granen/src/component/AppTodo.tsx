@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { todoType } from "../types" 
-const [todo, setTodo] = useState<todoType>("");
+const [todo, setTodo] = useState<todoType | null>(null);
 const onChange = (event:React.FormEvent<HTMLInputElement>) => {
   const target = event.target as HTMLTextAreaElement;
   console.log(target);

@@ -1,5 +1,5 @@
 // Promise
-// 비동기로 작업이 진행되는 상태
+// 비동기 결과를 담고있다가 언제든 꺼낼수있는 변수
 
 
 function isPositive(number, resolve, reject){

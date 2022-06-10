@@ -10,3 +10,4 @@ async function getDate(){
   let jsonResponse = await rawResponse.json();
   console.log(jsonResponse);
 }
+getDate();

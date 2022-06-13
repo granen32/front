@@ -18,3 +18,7 @@ export interface todosType {
     text: string;  
     isDone: boolean;
  }
+
+ export type CounterType = {
+   count :number;
+ }

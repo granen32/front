@@ -22,3 +22,7 @@ export interface todosType {
  export type CounterType = {
    count :number;
  }
+
+export interface TodoFormProps{
+  addTodo : string;
+}

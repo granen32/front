@@ -1,8 +1,11 @@
+import Circle from "./Circle";
+
 function App() {
   return (
-    <>
-      <h1>typescript</h1>
-    </>
+   <>
+    <Circle bgColor="teal"/>
+    <Circle bgColor="tomato"/>
+   </>
   );
 }
 

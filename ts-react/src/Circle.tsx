@@ -14,14 +14,13 @@ const Container = styled.div<ContainerProps>`
 
 interface CircleProps {
   bgColor : string;
+  //인터 페이스는 객체 모양을 타입스크립트에게 설명해주는 타입스크립트에 개념이다.
 }
 
 const Circle = ({bgColor}:CircleProps) => {
   return (
     <>
-    <Container bgColor={bgColor}>
-
-    </Container>
+    <Container bgColor={bgColor} />
     </>
   )
 }

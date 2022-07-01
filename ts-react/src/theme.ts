@@ -5,9 +5,3 @@ export const lightTheme: DefaultTheme = {
   textColor: "black",
   btnColor: "tomato",
 };
-
-export const darkTheme: DefaultTheme = {
-  bgColor: "black",
-  textColor: "white",
-  btnColor: "teal",
-};

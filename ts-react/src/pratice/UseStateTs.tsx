@@ -1,7 +1,6 @@
-import Circle from "./pratice/Circle";
-import { useState,FormEvent } from 'react';
+import React ,{ useState,FormEvent } from 'react';
 
-function App() {
+const UseStateTs = () => {
   const [value , setValue] = useState("");
   const onChage = (event:FormEvent<HTMLInputElement>) =>{
     const {
@@ -14,9 +13,6 @@ function App() {
     console.log("hello", value);
   }
   return (
-   <>
-    <Circle bgColor="teal" text="i'm here"/>
-    <Circle bgColor="tomato" borderColor="red"/>
     <div>
       <form action="" onSubmit={onSubmit}>
         <input 
@@ -28,8 +24,8 @@ function App() {
         <button>log in</button>
       </form>
     </div>
-   </>
-  );
+  )
 }
 
-export default App;
+export default UseStateTs
+

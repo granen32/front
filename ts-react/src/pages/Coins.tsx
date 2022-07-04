@@ -1,6 +1,6 @@
 import React , { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link,useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import  axios  from 'axios';
 
@@ -25,9 +25,10 @@ const Coin = styled.li`
   margin-bottom: 10px;
   border-radius: 15px;
   a{
+    display: flex;
+    align-items: center;
     padding: 20px;
     transition: color .5s ease-in-out;
-    display: block;
   }
   &:hover{
     a{
@@ -43,6 +44,12 @@ const Title = styled.h1`
 const Loader = styled.div`
     text-align: center;
 `;
+const Img = styled.img`
+  max-width: 35px;
+  width: 100%;
+  max-height: 35px;
+  margin-right: 10px;
+`
 
 interface CoinInterface {
   id: string;
@@ -53,19 +60,17 @@ interface CoinInterface {
   is_active: boolean;
   type: string;
 }
-
 const Coins = () => {
   const [coins, setCoins] = useState<CoinInterface[]>([]);
   const [loading, setLoading] = useState(true);
-
   const getCoins = async() =>{
     const res  =  await axios("https://api.coinpaprika.com/v1/coins");
     setCoins(res.data.slice(0, 100));
     setLoading(false);
-  }
+  };
   useEffect(()=>{
     getCoins();
-  })
+  });
   return (
     <Container>
       <Header>
@@ -73,7 +78,17 @@ const Coins = () => {
       </Header>
       {loading ? <Loader>"Loading..."</Loader>: <CoinList>
         {coins.map(coin => <Coin key={coin.id}>
-          <Link to={`/${coin.id}`}>{coin.name} &rarr;</Link>
+          <Link 
+            to={{
+              pathname : `/${coin.id}`,
+            }}
+            state={{
+              name : coin.id
+            }}
+            >
+            <Img src={`https://coinicons-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`} alt="" />
+            {coin.name} &rarr;
+          </Link>
         </Coin>)}
       </CoinList>}
     </Container>

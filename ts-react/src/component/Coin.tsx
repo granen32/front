@@ -1,7 +1,6 @@
-import React ,{ useState } from 'react';
+import React ,{ useState,useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import styled  from 'styled-components';
-import { useEffect } from 'react';
 import  axios  from 'axios';
 const Container = styled.section`
   padding: 0 10px;
@@ -42,14 +41,13 @@ const Coin = () => {
   const getCoin = async() =>{
     const coinData = await axios(`https://api.coinpaprika.com/v1/coins/${coinId}`);
     const priceData = await axios(`https://api.coinpaprika.com/v1/tickers/${coinId}`);
-    setCoin(coinData.data.description);
-    setpriceInfo(priceData.data.description);
-    console.log(coinData.data.description);
-    console.log(priceData.data.quotes.USD.price);
-
+    setCoin(coinData.data);
+    setpriceInfo(priceData.data.quotes.USD.price);
   };
   useEffect(() =>{
     getCoin();
+    console.log(coin);
+    console.log(priceInfo);
   },[]);
   return (
     <Container>

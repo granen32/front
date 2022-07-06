@@ -1,7 +1,10 @@
 import React ,{ useState,useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams,Routes,Route,Outlet } from 'react-router-dom';
 import styled  from 'styled-components';
-import  axios  from 'axios';
+import axios  from 'axios';
+import Price from '../pages/Price';
+import Chart from '../pages/Chart';
+
 const Container = styled.section`
   padding: 0 10px;
   max-width: 480px;
@@ -158,6 +161,12 @@ const Coin = () => {
       </>
       }
       {/* url로 컨트롤 하고 싶을 때 네스트 라우터를 사용함 */}
+      
+      <Routes>
+        <Route path="price"  element={<Price/>}/>
+        <Route path="chart" element={<Chart/>}/>
+      </Routes>
+      <Outlet />
     </Container>
   )
 }

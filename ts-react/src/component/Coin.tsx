@@ -1,5 +1,22 @@
-import React ,{ useState,useEffect } from 'react';
-import { useLocation, useParams,Routes,Route,Outlet } from 'react-router-dom';
+import React ,{ 
+  useState,
+  useEffect
+} from 'react';
+import { 
+  useLocation, 
+  useParams, 
+  Routes, 
+  Route, 
+  Outlet, 
+  Link, 
+  useMatch
+} from 'react-router-dom';
+import { 
+  coinIdProps, 
+  locationProps, 
+  coinData, 
+  priceInfoData
+} from "../types" 
 import styled  from 'styled-components';
 import axios  from 'axios';
 import Price from '../pages/Price';
@@ -46,75 +63,34 @@ const CoinViewItem = styled.div`
 const CoinDescription = styled.p`
   margin: 20px 0;
 `;
-
-interface coinIdProps{
-  coinId : string;
-}
-interface locationProps {
-  state:{
-    name:string;
+const Tabs = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  margin: 25px 0px;
+  gap: 10px;
+`;
+const Tab = styled.div<{isActive : boolean}>`
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight:400;
+  background: rgba(0,0,0, 0.5);
+  border-radius: 10px;
+  padding: 10px 0;
+  color:${props => props.isActive ? props.theme.accentColor : props.theme.textColor};
+  a{
+    display: block;
   }
-}
-interface coinData {
-  id: string;
-  name: string;
-  symbol: string;
-  rank: number;
-  is_new: boolean;
-  is_active: boolean;
-  type: string;
-  description: string;
-  message: string;
-  open_source: boolean;
-  started_at: string;
-  development_status: string;
-  hardware_wallet: boolean;
-  proof_type: string;
-  org_structure: string;
-  hash_algorithm: string;
-  first_data_at: string;
-  last_data_at: string;
-}
-interface priceInfoData{
-  id: string;
-  name: string;
-  symbol: string;
-  rank: number;
-  circulating_supply: number;
-  total_supply: number;
-  max_supply: number;
-  beta_value: number;
-  first_data_at: string;
-  last_updated: string;
-  quotes: {
-    USD: {
-      ath_date: string;
-      ath_price: number;
-      market_cap: number;
-      market_cap_change_24h: number;
-      percent_change_1h: number;
-      percent_change_1y: number;
-      percent_change_6h: number;
-      percent_change_7d: number;
-      percent_change_12h: number;
-      percent_change_15m: number;
-      percent_change_24h: number;
-      percent_change_30d: number;
-      percent_change_30m: number;
-      percent_from_price_ath: number;
-      price: number;
-      volume_24h: number;
-      volume_24h_change_24h: number;
-    };
-  };
-}
-
+`;
 const Coin = () => {
   const [loading, setLoading] = useState(true);
   const {coinId} = useParams<keyof coinIdProps>() as coinIdProps;
   const {state} = useLocation() as locationProps;
   const [coin, setCoin] = useState<coinData>();
   const [priceInfo, setpriceInfo] = useState<priceInfoData>();
+  const priceMatch = useMatch("/:coinId/price");
+  const chartMatch = useMatch("/:coinId/chart");
+  // usematch 를 사용하게 되면 해당 항목이 있을 경우 객체값을 받게됨
   // 컴포넌트가 생성될 때 한번만 코드 실행 === useEffect
   const getCoin = async() =>{
     const coinData = await axios(`https://api.coinpaprika.com/v1/coins/${coinId}`);
@@ -158,15 +134,27 @@ const Coin = () => {
             <span>{priceInfo?.max_supply}</span>
           </CoinViewItem>
         </CoinView>
+        <Outlet />
       </>
       }
       {/* url로 컨트롤 하고 싶을 때 네스트 라우터를 사용함 */}
-      
+      {/* 탭 만들어 보기(nested router를 사용하기에 그냥 link로 던지면 됨) */}
+      <Tabs>
+        <Tab isActive={chartMatch !== null}>
+          <Link to={`/${coinId}/chart`}>
+            Chart
+          </Link>
+        </Tab>
+        <Tab isActive={priceMatch !== null}>
+          <Link to={`/${coinId}/price`}>
+            Price
+          </Link>
+        </Tab>
+      </Tabs>
       <Routes>
-        <Route path="price"  element={<Price/>}/>
-        <Route path="chart" element={<Chart/>}/>
-      </Routes>
-      <Outlet />
+        <Route path="chart" element={<Chart />} />
+        <Route path="price" element={<Price />} />
+      </ Routes>
     </Container>
   )
 }

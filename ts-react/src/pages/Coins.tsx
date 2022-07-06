@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import  axios  from 'axios';
-
+import { CoinInterface } from "../types" 
 const Container = styled.section`
   padding: 0 10px;
   max-width: 480px;
@@ -51,15 +51,7 @@ const Img = styled.img`
   margin-right: 10px;
 `
 
-interface CoinInterface {
-  id: string;
-  name: string;
-  symbol: string;
-  rank: number;
-  is_new: boolean;
-  is_active: boolean;
-  type: string;
-}
+
 const Coins = () => {
   const [coins, setCoins] = useState<CoinInterface[]>([]);
   const [loading, setLoading] = useState(true);

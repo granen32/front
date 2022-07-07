@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import  axios  from 'axios';
-import { coinIdProps, CoinInterface } from "../types" 
-import { useQuery } from 'react-query';
-import { fetchCoins } from '../api';
+import { CoinInterface } from "../types" 
 const Container = styled.section`
   padding: 0 10px;
   max-width: 480px;
@@ -55,14 +53,23 @@ const Img = styled.img`
 
 
 const Coins = () => {
-  const {isLoading,data} = useQuery<CoinInterface[]>("allCoins", fetchCoins);
+  const [coins, setCoins] = useState<CoinInterface[]>([]);
+  const [loading, setLoading] = useState(true);
+  const getCoins = async() =>{
+    const res  =  await axios("https://api.coinpaprika.com/v1/coins");
+    setCoins(res.data.slice(0, 100));
+    setLoading(false);
+  };
+  useEffect(()=>{
+    getCoins();
+  });
   return (
     <Container>
       <Header>
         <Title>coins</Title>
       </Header>
-      {isLoading ? <Loader>"Loading..."</Loader>: <CoinList>
-        {data?.map(coin => <Coin key={coin.id}>
+      {loading ? <Loader>"Loading..."</Loader>: <CoinList>
+        {coins.map(coin => <Coin key={coin.id}>
           <Link 
             to={{
               pathname : `/${coin.id}`,

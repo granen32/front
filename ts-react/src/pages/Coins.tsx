@@ -1,11 +1,10 @@
-import React , { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-import  axios  from 'axios';
-import { coinIdProps, CoinInterface } from "../types" 
+import { CoinInterface } from "../types" 
 import { useQuery } from 'react-query';
 import { fetchCoins } from '../api';
+import { useEffect } from 'react';
 const Container = styled.section`
   padding: 0 10px;
   max-width: 480px;
@@ -56,13 +55,14 @@ const Img = styled.img`
 
 const Coins = () => {
   const {isLoading,data} = useQuery<CoinInterface[]>("allCoins", fetchCoins);
+  console.log(data);
   return (
     <Container>
       <Header>
         <Title>coins</Title>
       </Header>
       {isLoading ? <Loader>"Loading..."</Loader>: <CoinList>
-        {data?.map(coin => <Coin key={coin.id}>
+        {data?.slice(0, 50).map(coin => <Coin key={coin.id}>
           <Link 
             to={{
               pathname : `/${coin.id}`,

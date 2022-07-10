@@ -10,7 +10,6 @@ const UseStateTs = () => {
   };
   const onSubmit = (event:FormEvent<HTMLFormElement>) =>{
     event.preventDefault();
-    console.log("hello", value);
   }
   return (
     <div>

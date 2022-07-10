@@ -1,7 +1,4 @@
-import React ,{ 
-  useState,
-  useEffect
-} from 'react';
+import React from 'react';
 import { 
   useLocation, 
   useParams, 
@@ -18,10 +15,10 @@ import {
   priceInfoData
 } from "../types" 
 import styled  from 'styled-components';
-import axios  from 'axios';
 import Price from '../pages/Price';
 import Chart from '../pages/Chart';
-
+import { useQuery } from 'react-query';
+import { coinUrl,priceUrl  } from '../api';
 const Container = styled.section`
   padding: 0 10px;
   max-width: 480px;
@@ -83,55 +80,43 @@ const Tab = styled.div<{isActive : boolean}>`
   }
 `;
 const Coin = () => {
-  const [loading, setLoading] = useState(true);
   const {coinId} = useParams<keyof coinIdProps>() as coinIdProps;
   const {state} = useLocation() as locationProps;
-  const [coin, setCoin] = useState<coinData>();
-  const [priceInfo, setpriceInfo] = useState<priceInfoData>();
   const priceMatch = useMatch("/:coinId/price");
   const chartMatch = useMatch("/:coinId/chart");
-  // usematch 를 사용하게 되면 해당 항목이 있을 경우 객체값을 받게됨
-  // 컴포넌트가 생성될 때 한번만 코드 실행 === useEffect
-  const getCoin = async() =>{
-    const coinData = await axios(`https://api.coinpaprika.com/v1/coins/${coinId}`);
-    const priceData = await axios(`https://api.coinpaprika.com/v1/tickers/${coinId}`);
-    setCoin(coinData.data);
-    setpriceInfo(priceData.data);
-    setLoading(false);
-  };
-  useEffect(() =>{
-    getCoin();
-  }, []);
+  const {isLoading : coinLoading , data : coData} = useQuery<coinData>(["coindata",coinId], () => coinUrl(coinId));
+  const {isLoading : priceLoading , data : prData} = useQuery<priceInfoData>(["coinprice",coinId], () => priceUrl(coinId));
+  const loading = coinLoading || priceLoading;
   return (
     <Container>
       <Header>
-        <Title>{state?.name  ? state.name : loading ? " loading...!" : priceInfo?.name}</Title>
+        <Title>{state?.name  ? state.name : loading ? " loading...!" : prData?.name}</Title>
       </Header>
       {loading ? <Loader>Loading...{coinId}</Loader> : 
       <>
         <CoinView>
           <CoinViewItem>
             <span>Rank :</span>
-            <span>{coin?.rank}</span>
+            <span>{coData?.rank}</span>
           </CoinViewItem>
           <CoinViewItem>
             <span>Symbol :</span>
-            <span>{coin?.symbol}</span>
+            <span>{coData?.symbol}</span>
           </CoinViewItem>
           <CoinViewItem>
             <span>Open Source:</span>
-            <span>{coin?.open_source ? "yes" : "no"}</span>
+            <span>{coData?.open_source ? "yes" : "no"}</span>
           </CoinViewItem>
         </CoinView>
-        <CoinDescription>{coin?.description}</CoinDescription>
+        <CoinDescription>{coData?.description}</CoinDescription>
         <CoinView>
           <CoinViewItem>
             <span>Total Suply :</span>
-            <span>{priceInfo?.total_supply}</span>
+            <span>{prData?.total_supply}</span>
           </CoinViewItem>
           <CoinViewItem>
             <span>Max Suply :</span>
-            <span>{priceInfo?.max_supply}</span>
+            <span>{prData?.max_supply}</span>
           </CoinViewItem>
         </CoinView>
         <Outlet />
@@ -152,7 +137,7 @@ const Coin = () => {
         </Tab>
       </Tabs>
       <Routes>
-        <Route path="chart" element={<Chart />} />
+        <Route path="chart" element={<Chart coinId={coinId}/>} />
         <Route path="price" element={<Price />} />
       </ Routes>
     </Container>

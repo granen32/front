@@ -19,6 +19,7 @@ import Price from '../pages/Price';
 import Chart from '../pages/Chart';
 import { useQuery } from 'react-query';
 import { coinUrl,priceUrl  } from '../api';
+import {Helmet} from 'react-helmet';
 const Container = styled.section`
   padding: 0 10px;
   max-width: 480px;
@@ -85,10 +86,15 @@ const Coin = () => {
   const priceMatch = useMatch("/:coinId/price");
   const chartMatch = useMatch("/:coinId/chart");
   const {isLoading : coinLoading , data : coData} = useQuery<coinData>(["coindata",coinId], () => coinUrl(coinId));
-  const {isLoading : priceLoading , data : prData} = useQuery<priceInfoData>(["coinprice",coinId], () => priceUrl(coinId));
+  const {isLoading : priceLoading , data : prData} = useQuery<priceInfoData>(["coinprice",coinId], () => priceUrl(coinId),{
+    refetchInterval : 5000
+  });
   const loading = coinLoading || priceLoading;
   return (
     <Container>
+      <Helmet>
+        <title>{state?.name  ? state.name : loading ? " loading...!" : prData?.name}</title>
+      </Helmet>
       <Header>
         <Title>{state?.name  ? state.name : loading ? " loading...!" : prData?.name}</Title>
       </Header>
@@ -104,8 +110,8 @@ const Coin = () => {
             <span>{coData?.symbol}</span>
           </CoinViewItem>
           <CoinViewItem>
-            <span>Open Source:</span>
-            <span>{coData?.open_source ? "yes" : "no"}</span>
+            <span>Price:</span>
+            <span>{prData?.quotes.USD.price.toFixed(2)}</span>
           </CoinViewItem>
         </CoinView>
         <CoinDescription>{coData?.description}</CoinDescription>

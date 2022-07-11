@@ -7,7 +7,7 @@ import { useQuery } from 'react-query';
 import { chartCoin } from '../api';
 import APEXChart from "react-apexcharts";
 const Chart = ({coinId}:coinIdProps) => {
-  const {isLoading, data} = useQuery<chartProps[]>(["ohlcv", coinId], () =>chartCoin(coinId),{refetchInterval : 10000});
+  const {isLoading, data} = useQuery<chartProps[]>(["ohlcv", coinId], () =>chartCoin(coinId),{refetchInterval : 500});
   return (
     <>
       {isLoading ? "Loading Chart..." : 

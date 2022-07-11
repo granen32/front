@@ -77,3 +77,8 @@ export interface chartProps {
   volume: string;
   market_cap: number;
 }
+
+export interface NavigateProps {
+  replace?: boolean;
+  state?: any;
+} 

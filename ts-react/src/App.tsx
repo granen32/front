@@ -1,6 +1,6 @@
 
 import Router from './Router';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { ReactQueryDevtools } from 'react-query/devtools'
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap');
@@ -63,16 +63,17 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
-`
-
-
+`;
+const Container = styled.main`
+  position: relative;
+`;
 function App() {
   return (
-   <>
+  <Container>
     <GlobalStyle/>
     <Router />
     <ReactQueryDevtools initialIsOpen={true}/>
-   </>
+  </Container>
   );
 }
 

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { CoinInterface } from "../types" 
 import { useQuery } from 'react-query';
 import { fetchCoins } from '../api';
+import HelmetTitle from './HelmetTitle';
 const Container = styled.section`
   padding: 0 10px;
   max-width: 480px;
@@ -57,6 +58,7 @@ const Coins = () => {
 
   return (
     <Container>
+      <HelmetTitle />
       <Header>
         <Title>coins</Title>
       </Header>

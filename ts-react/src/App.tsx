@@ -1,5 +1,5 @@
 
-import Router from './Router';
+import Routers from './routes/Routers';
 import styled, { createGlobalStyle } from 'styled-components';
 import { ReactQueryDevtools } from 'react-query/devtools'
 const GlobalStyle = createGlobalStyle`
@@ -30,6 +30,9 @@ const GlobalStyle = createGlobalStyle`
     display: block;
   }
   /* HTML5 hidden-attribute fix for newer browsers */
+  button{
+    background: inherit ; border:none; box-shadow:none; border-radius:0; padding:0; overflow:visible; cursor:pointer
+  }
   *[hidden] {
       display: none;
   }
@@ -71,7 +74,7 @@ function App() {
   return (
   <Container>
     <GlobalStyle/>
-    <Router />
+    <Routers />
     <ReactQueryDevtools initialIsOpen={true}/>
   </Container>
   );

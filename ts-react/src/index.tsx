@@ -5,7 +5,7 @@ import App from './App';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme } from "./theme";
 // 리액트 쿼리
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import { QueryClient, QueryClientProvider } from 'react-query'
  
 const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root')as HTMLElement);
